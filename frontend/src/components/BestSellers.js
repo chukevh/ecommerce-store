@@ -6,12 +6,7 @@ export default function BestSellers() {
         return (
         <Card
           key={shirt.id}
-          img={shirt.img} 
-          brand={shirt.brand} 
-          name={shirt.name} 
-          price={shirt.price} 
-          rating={shirt.rating} 
-          reviewcount={shirt.reviewcount}
+          shirt={shirt}
         />
         )
       }) 
@@ -25,3 +20,5 @@ export default function BestSellers() {
 
     )
 }
+
+// {...item} spreads object across literals
