@@ -90,11 +90,10 @@ section {
     border-radius: 10px;
 }
 
-.card-image-containger:hover {
+.card-image-container:hover {
     filter: brightness(70%);
 }
   
-
 .card-details {
     display: flex;
     flex-direction: column;
