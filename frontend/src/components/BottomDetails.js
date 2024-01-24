@@ -14,7 +14,7 @@ export default function BottomDetails() {
                 <label 
                     className="subbox-label"
                 >
-                        Sign Up For Emails
+                    Sign Up For Emails
                 </label>
                 <input 
                     type="email"
