@@ -1,3 +1,5 @@
+
+
 export default function BottomDetails() {
     function handleClick() {
         console.log("Subscribed!")
@@ -13,6 +15,7 @@ export default function BottomDetails() {
             <form className="form">
                 <label 
                     className="subbox-label"
+                    htmlFor="email"
                 >
                     Sign Up For Emails
                 </label>
@@ -26,7 +29,6 @@ export default function BottomDetails() {
                 <button 
                     type="submit"
                     className="subbox-button"
-                    onClick={handleClick}
                     onMouseOver={handleMouseOver}
                     onMouseLeave={handleMouseLeave}
                 >
