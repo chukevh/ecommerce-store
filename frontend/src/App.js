@@ -3,7 +3,8 @@ import MainContent from "./components/MainContent.js"
 import BestSellers from "./components/BestSellers.js"
 import BottomDetails from "./components/BottomDetails.js"
 import Footer from "./components/Footer.js"
-import SubscribeBox from "./components/SubscribeBox"
+//import SubscribeBox from "./components/SubscribeBox"
+import SignUp from "./components/SignUp.js"
 
 
 export default function App() {
@@ -13,7 +14,7 @@ export default function App() {
       <MainContent />
       <BestSellers />
       <BottomDetails />
-      <SubscribeBox />
+      <SignUp />
       <Footer />
     </div>
   )

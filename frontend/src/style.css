@@ -149,13 +149,39 @@ section {
     font-size: medium;
 }
 
-.subbox-button {
+.subbox-button, .signup-button {
     font-family: "Poppins", sans-serif;
     font-size: medium;
     background-color: black;
     color: white;
     border-radius: 5px;
+}
 
+/* SignUp */
+.form-container {
+    background-color: violet;
+    display: flex;
+    justify-content: center;
+    height: 80vh;
+    padding-top: 10px;
+}
+
+.form {
+    padding: 10px 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    background: white;
+    max-height: 30%;
+
+}
+
+.signup-input {
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    border: 1px solid #D5D4D8;
+    border-radius: 3px;
+    font-size: 14px;
 }
 
 /* FOOTER */

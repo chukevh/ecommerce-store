@@ -1,7 +1,7 @@
 
 
 export default function BottomDetails() {
-    function handleClick() {
+    function handleSubmit() {
         console.log("Subscribed!")
     }
     const handleMouseOver = e => {
@@ -12,7 +12,7 @@ export default function BottomDetails() {
     }
     return (
         <section className="subbox">
-            <form className="form">
+            <form className="form" onSubmit={handleSubmit}>
                 <label 
                     className="subbox-label"
                     htmlFor="email"
