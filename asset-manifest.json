@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/kevs-shirt-shop/static/css/main.2e6243cb.css",
+    "main.js": "/kevs-shirt-shop/static/js/main.37fc8478.js",
+    "static/media/shirts-montage.jpg": "/kevs-shirt-shop/static/media/shirts-montage.239c4b2f385241ce1e8f.jpg",
+    "static/media/logo.png": "/kevs-shirt-shop/static/media/logo.3bdf23f80cb882d56537.png",
+    "static/media/star.png": "/kevs-shirt-shop/static/media/star.df61420889de2df97847.png",
+    "index.html": "/kevs-shirt-shop/index.html",
+    "main.2e6243cb.css.map": "/kevs-shirt-shop/static/css/main.2e6243cb.css.map",
+    "main.37fc8478.js.map": "/kevs-shirt-shop/static/js/main.37fc8478.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2e6243cb.css",
+    "static/js/main.37fc8478.js"
+  ]
+}
