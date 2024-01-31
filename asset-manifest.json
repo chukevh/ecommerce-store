@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/kevs-shirt-shop/static/css/main.2e6243cb.css",
-    "main.js": "/kevs-shirt-shop/static/js/main.37fc8478.js",
-    "static/media/shirts-montage.jpg": "/kevs-shirt-shop/static/media/shirts-montage.239c4b2f385241ce1e8f.jpg",
-    "static/media/logo.png": "/kevs-shirt-shop/static/media/logo.3bdf23f80cb882d56537.png",
-    "static/media/star.png": "/kevs-shirt-shop/static/media/star.df61420889de2df97847.png",
-    "index.html": "/kevs-shirt-shop/index.html",
-    "main.2e6243cb.css.map": "/kevs-shirt-shop/static/css/main.2e6243cb.css.map",
-    "main.37fc8478.js.map": "/kevs-shirt-shop/static/js/main.37fc8478.js.map"
+    "main.css": "/ecommerce-store/static/css/main.2e6243cb.css",
+    "main.js": "/ecommerce-store/static/js/main.39f4ff4b.js",
+    "static/media/shirts-montage.jpg": "/ecommerce-store/static/media/shirts-montage.239c4b2f385241ce1e8f.jpg",
+    "static/media/logo.png": "/ecommerce-store/static/media/logo.3bdf23f80cb882d56537.png",
+    "static/media/star.png": "/ecommerce-store/static/media/star.df61420889de2df97847.png",
+    "index.html": "/ecommerce-store/index.html",
+    "main.2e6243cb.css.map": "/ecommerce-store/static/css/main.2e6243cb.css.map",
+    "main.39f4ff4b.js.map": "/ecommerce-store/static/js/main.39f4ff4b.js.map"
   },
   "entrypoints": [
     "static/css/main.2e6243cb.css",
-    "static/js/main.37fc8478.js"
+    "static/js/main.39f4ff4b.js"
   ]
 }
