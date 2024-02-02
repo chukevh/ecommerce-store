@@ -6,7 +6,7 @@ const shirtData = [
         name: "BG3 Logo Tee",
         price: 29.99,
         rating: "4.5",
-        reviewCount: 10,
+        reviewcount: 10,
         stock: 0
     },
     {
@@ -16,7 +16,7 @@ const shirtData = [
         name: "I Love Nilliur Tee",
         price: 29.99,
         rating: "5.0",
-        reviewCount: 6,
+        reviewcount: 6,
         stock: 5
     },
     {
@@ -26,7 +26,7 @@ const shirtData = [
         name: "Stardew Logo Tee",
         price: 29.99,
         rating: "4.0",
-        reviewCount: 3,
+        reviewcount: 3,
         stock: 3
     },
     {
@@ -36,7 +36,7 @@ const shirtData = [
         name: "TFT Tee",
         price: 29.99,
         rating: "1.0",
-        reviewCount: 5,
+        reviewcount: 5,
         stock: 4
     },
     {
@@ -46,7 +46,7 @@ const shirtData = [
         name: "Ichigo Graphic Tee",
         price: 29.99,
         rating: "5.0",
-        reviewCount: 15,
+        reviewcount: 15,
         stock: 10
     }
 ]

@@ -1,22 +1,19 @@
-import Header from "./components/Header.js"
-import MainContent from "./components/MainContent.js"
-import BestSellers from "./components/BestSellers.js"
-import BottomDetails from "./components/BottomDetails.js"
-import Footer from "./components/Footer.js"
 //import SubscribeBox from "./components/SubscribeBox"
-import SignUp from "./components/SignUp.js"
+import SignUp from "./pages/SignUp.js"
+import Home from "./pages/Home.js"
+import Shirts from "./pages/Shirts.js"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 
 export default function App() {
   return (
-    <div>
-      <Header />
-      <MainContent />
-      <BestSellers />
-      <BottomDetails />
-      <SignUp />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />}/>
+        <Route path="/sign-up" element={<SignUp />}/>
+        <Route path="/t-shirts" element={<Shirts />}/>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
