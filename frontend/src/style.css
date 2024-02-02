@@ -165,6 +165,7 @@ a.nav-text  {
     background-color: black;
     color: white;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 /* SignUp */
@@ -209,6 +210,7 @@ a.nav-text  {
     color: white;
     border-radius: 5px;
     width: 40%;
+    cursor: pointer;
 }
 
 .signup-sub-container {
@@ -222,6 +224,11 @@ a.nav-text  {
 }
 
 /* SHIRTS PAGE */
+.shirt-main-content {
+    margin-top: 4%;
+    text-align: center;
+}
+
 .shirt-container {
     margin-top: 2%;
     display: flex;
@@ -270,6 +277,74 @@ a.nav-text  {
     border-radius: 5px;
     font-weight: bold;
 }
+
+/* SHIRT PAGES */
+.shirt-hero-container {
+    margin-top: 8%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-left: 3%;
+    padding-right: 3%;
+    flex-wrap: wrap;
+}
+
+.shirt-details-container {
+    padding-left: 5%;
+    width: 42%;
+    
+}
+
+.shirt-hero-img-container {
+    width: 50%;
+    min-width: 350px;
+    max-width: 700px
+}
+
+.shirt-hero-img {
+    width: 100%;
+}
+
+.shirt-details-name {
+    font-size: 40px;
+}
+.shirt-details-price {
+    font-size: 20px;
+}
+
+.shirt-details-price-info {
+    font-size: 15px;
+}
+
+.shirt-details-size-btn {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    font-size: 15px;
+    padding: 6px 12px;
+    border-radius: 16px;
+}
+
+.shirt-quanitity-container {
+    width: 120px;
+    display: flex;
+    border: 1px solid black;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 2px;
+}
+
+.shirt-quantity-button {
+    cursor: pointer;
+    background-color: white;
+    font-size: 25px;
+    border: 0px;
+}
+
+/* .shirt-quantity-count {
+    
+   
+} */
 
 /* FOOTER */
 .footer {

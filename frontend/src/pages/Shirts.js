@@ -1,7 +1,5 @@
 import React from "react"
-import Header from "../components/Header";
 import ShirtCard from "../components/ShirtCard";
-import Footer from "../components/Footer";
 
 export default function Shirts() {
     const [shirts, setShirts] = React.useState([])
@@ -20,12 +18,11 @@ export default function Shirts() {
     ))
 
     return (
-        <div>
-            <Header />
+        <div className="shirt-main-content">
+            <h1 >Explore our Shirt Collection</h1>
             <section className="shirt-container">
                 {shirtElements}
             </section>
-            <Footer />
         </div>
     )
 }

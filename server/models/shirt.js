@@ -10,6 +10,10 @@ const shirtSchema = mongoose.Schema(
         img: {
             type: String,
             required: true
+        },
+        imgBack: {
+            type: String,
+            required: true
         },        
         brand: {
             type: String,
