@@ -27,6 +27,10 @@ export default function ShirtDetail() {
         })
     }
 
+    function handleAddToCart() {
+        //API to add to cart
+    }
+
     return (
         <div>
             {shirtData ? (
@@ -60,17 +64,20 @@ export default function ShirtDetail() {
                                 <span className="shirt-quantity-count">{shirtCount}</span>
                                 <button className="shirt-quantity-button" onClick={handleClickIncrement}>+</button>
                             </div>
-
+                            <br/>
+                            <button className="shirt-cart-button" onClick={handleAddToCart}>Add to Cart</button>
+                            <div className="shirt-details-description-container">
+                                <p>
+                                    <span>--Product description--</span>
+                                    <br/>
+                                    <span>--Materials--</span>
+                                    <br/>
+                                    <span>--Shipping and Return--</span>
+                                    <br/>
+                                    <span>--Dimensions--</span>
+                                </p>
+                            </div>
                         </p>
-
-                        {/* <p><span className="shirtcard-brand">{shirtData.brand}</span></p>
-                        <p>{shirtData.name}</p>
-                        <p>${shirtData.price['$numberDecimal']}</p>
-                        <div className="card-stats">
-                            <img src={star} alt="star" className="card-star"/>
-                            <span className="gray">{shirtData.rating['$numberDecimal']}</span>
-                            <span className="gray">({shirtData.reviewCount})</span>
-                        </div> */}
                     </div>
                 </div>
             ) : <h2>Loading...</h2>}

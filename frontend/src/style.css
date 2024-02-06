@@ -342,9 +342,21 @@ a.nav-text  {
 }
 
 /* .shirt-quantity-count {
-    
-   
+
 } */
+
+.shirt-cart-button {
+    border: 1px solid black;
+    cursor: pointer;
+    background-color: white;
+    font-size: 15px;
+    width: 100%;
+    padding: 12px 0px;
+}
+
+.shirt-details-description-container {
+    
+}
 
 /* FOOTER */
 .footer {
