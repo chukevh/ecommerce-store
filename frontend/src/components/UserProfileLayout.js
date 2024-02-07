@@ -1,12 +1,32 @@
-import { Link, Outlet } from "react-router-dom"
+import { NavLink, Outlet } from "react-router-dom"
 
 export default function UserProfileLayout() {
+    const activeStyle = {
+        fontWeight: "bold",
+        textDecoration: "underline"
+    }
     return (
         <>
             <nav className="user-profile-nav">
-                <Link to="/user-profile/details">Profile</Link>
-                <Link to="/user-profile/orders">Orders</Link>
-                <Link to="/user-profile/logout">Logout</Link>
+                <NavLink 
+                    to="/user-profile"
+                    end
+                    style={({ isActive }) => isActive ? activeStyle : null}
+                >
+                    Profile
+                </NavLink>
+                <NavLink 
+                    to="/user-profile/orders"
+                    style={({ isActive }) => isActive ? activeStyle : null}
+                >
+                    Orders
+                </NavLink>
+                <NavLink 
+                    to="/user-profile/logout"
+                    style={({ isActive }) => isActive ? activeStyle : null}
+                >
+                    Logout
+                </NavLink>
             </nav>
             <Outlet />
         </>

@@ -1,11 +1,17 @@
 import logo from "../images/logo.png"
 import { Link, NavLink } from "react-router-dom"
 import ProfileImg from "../images/profile.png"
+import Cart from "../images/cart.jpg"
+import MagnifyingGlass from "../images/magnifying-glass.png"
 
 export default function Header() {
     const activeStyle = {
         fontWeight: "bold",
         textDecoration: "underline"
+    }
+
+    const activeImgStyle = {
+        transform: 1.2
     }
     return (
         <nav className="nav-items">
@@ -25,9 +31,21 @@ export default function Header() {
                     Sign-Up
                 </NavLink>
                 <Link 
+                    to="/search"         
+                    className="nav-links-img-container"
+                >
+                    <img src={MagnifyingGlass} className="nav-links-img"/>
+                </Link> 
+                <Link 
                     to="/user-profile"         className="nav-links-img-container"
                 >
                     <img src={ProfileImg} className="nav-links-img"/>
+                </Link> 
+                <Link 
+                    to="/cart"         
+                    className="nav-links-img-container"
+                >
+                    <img src={Cart} className="nav-links-img"/>
                 </Link> 
             </div> 
         </nav>

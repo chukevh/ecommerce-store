@@ -71,14 +71,15 @@ a.nav-text  {
 
 .nav-links-img-container {
     height: 25px;
-}
-
-.nav-links-img {
-    height: 100%
+    padding-left: 5px;
 }
 
 .nav-links-img-container > img:hover {
     transform: scale(1.2);
+}
+
+.nav-links-img {
+    height: 100%
 }
 
 
