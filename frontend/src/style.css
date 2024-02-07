@@ -63,6 +63,7 @@ a.nav-text  {
 
 .nav-links > a {
     text-decoration: none;
+    color: black;
 }
 
 .nav-links > a:hover {
@@ -123,13 +124,24 @@ a.nav-text  {
     position: relative;
 }
 
+.card:hover .card-image-container {
+    filter: brightness(70%);
+}
+
 .card-image {
     width: 100%;
     border-radius: 10px;
 }
 
-.card-image-container:hover {
-    filter: brightness(70%);
+
+
+.card > a {
+    color: black;
+    text-decoration: none;
+}
+
+.card > a:hover {
+    text-decoration: underline;
 }
   
 .card-details {
@@ -271,6 +283,15 @@ a.nav-text  {
     width: 30%;
     margin-bottom: 5%;
     position: relative;
+}
+
+.shirtcard-container a {
+    color: black;
+    text-decoration: none;
+}
+
+.shirtcard-container a:hover {
+    text-decoration: underline;
 }
 
 .shirtcard-img {
