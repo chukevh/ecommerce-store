@@ -12,22 +12,23 @@ import UserLogout from "./components/UserLogout.js"
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />}/>
-          <Route path="sign-up" element={<SignUp />}/>
-          <Route path="t-shirts" element={<Shirts />}/>
-          <Route path="t-shirts/:id" element={<ShirtDetail />}/>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />}/>
+            <Route path="sign-up" element={<SignUp />}/>
+            <Route path="t-shirts" element={<Shirts />}/>
+            <Route path="t-shirts/:id" element={<ShirtDetail />}/>
 
-          <Route path="user-profile" element={<UserProfileLayout />}>
-            <Route index element={<UserProfileDetails />}/>
-            <Route path="orders" element={<UserOrderDetails />}/>
-            <Route path="logout" element={<UserLogout />}/>
+            <Route path="user-profile" element={<UserProfileLayout />}>
+              <Route index element={<UserProfileDetails />}/>
+              <Route path="details" element={<UserProfileDetails />}/>
+              <Route path="orders" element={<UserOrderDetails />}/>
+              <Route path="logout" element={<UserLogout />}/>
+            </Route>
           </Route>
-        </Route>
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
   )
 }
 
