@@ -52,6 +52,16 @@ a.nav-text  {
     display: flex;
     gap: 10px;
     margin-left: auto;
+    align-items: center;
+}
+
+.nav-links-img-container {
+    height: 25px;
+    
+}
+
+.nav-links-img {
+    height: 100%
 }
 
 
@@ -356,6 +366,25 @@ a.nav-text  {
 
 .shirt-details-description-container {
     
+}
+
+/* User Profile */
+.user-profile-nav {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.user-profile-nav a {
+    text-decoration: none;
+    color: #4D4D4D;
+    font-weight: 500;
+    padding: 5px 20px;
+}
+
+.user-profile-nav a:hover {
+    color: #161616;
+    text-decoration: underline;
+    font-weight: 600;
 }
 
 /* FOOTER */
