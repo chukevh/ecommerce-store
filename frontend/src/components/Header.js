@@ -10,42 +10,39 @@ export default function Header() {
         textDecoration: "underline"
     }
 
-    const activeImgStyle = {
-        transform: 1.2
-    }
     return (
         <nav className="nav-items">
             <img src={logo} alt="Shirt Store Logo" className="nav-logo"/>
-            <Link to="/" className="nav-text">Kev's Shirt Shop</Link>
+            <Link to="." className="nav-text">Kev's Shirt Shop</Link>
             <div className="nav-links">
                 <NavLink 
-                    to="/t-shirts"
+                    to="t-shirts"
                     style={({ isActive }) => isActive ? activeStyle : null }
                 >
                     Shop Shirts
                 </NavLink>
                 <NavLink 
-                    to="/sign-up"
+                    to="sign-up"
                     style={({ isActive }) => isActive ? activeStyle : null }
                 >
                     Sign-Up
                 </NavLink>
                 <Link 
-                    to="/search"         
+                    to="search"         
                     className="nav-links-img-container"
                 >
-                    <img src={MagnifyingGlass} className="nav-links-img"/>
+                    <img src={MagnifyingGlass} className="nav-links-img" alt=""/>
                 </Link> 
                 <Link 
-                    to="/user-profile"         className="nav-links-img-container"
+                    to="user-profile"         className="nav-links-img-container"
                 >
-                    <img src={ProfileImg} className="nav-links-img"/>
+                    <img src={ProfileImg} className="nav-links-img" alt=""/>
                 </Link> 
                 <Link 
-                    to="/cart"         
+                    to="cart"         
                     className="nav-links-img-container"
                 >
-                    <img src={Cart} className="nav-links-img"/>
+                    <img src={Cart} className="nav-links-img" alt=""/>
                 </Link> 
             </div> 
         </nav>

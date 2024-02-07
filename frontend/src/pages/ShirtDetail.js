@@ -1,6 +1,6 @@
 import React from "react"
-import { useParams } from "react-router-dom"
-import star from "../images/star.png"
+import { Link, useParams } from "react-router-dom"
+//import star from "../images/star.png"
 
 export default function ShirtDetail() {
     const [shirtData, setShirtData] = React.useState(null)
@@ -35,49 +35,52 @@ export default function ShirtDetail() {
         <div>
             {shirtData ? (
                 <div className="shirt-hero-container">
-                    <div className="shirt-hero-img-container">
-                        <img src={`/images/${shirtData.img}`} alt="shirt" className="shirt-hero-img"/>
-                    </div>
-                    <div className="shirt-details-container">
-                        <span className="shirt-details-name">{shirtData.name}</span>
-                        <p>
-                            <span className="shirt-details-price">${shirtData.price['$numberDecimal']}</span>
-                            <br/>
-                            <i className="shirt-details-price-info">Tax included. Shipping calculated at checkout.</i>
-                            <br/>
-                            <br/>
-                            <span>Brand: <span className="bold">{shirtData.brand}</span></span>
-                            <br/>
-                            <br/>
-                            <span>Colour: <span className="bold">White</span></span>
-                            <br/>
-                            <br/>
-                            <span>Size:</span>
-                            <br/>
-                            <button className="shirt-details-size-btn"> OSFA </button>
-                            <br/>
-                            <br/>
-                            <span>Quantity:</span>
-                            <br/>
-                            <div class="shirt-quanitity-container">
-                                <button className="shirt-quantity-button" onClick={handleClickDecrement}>-</button>
-                                <span className="shirt-quantity-count">{shirtCount}</span>
-                                <button className="shirt-quantity-button" onClick={handleClickIncrement}>+</button>
-                            </div>
-                            <br/>
-                            <button className="shirt-cart-button" onClick={handleAddToCart}>Add to Cart</button>
-                            <div className="shirt-details-description-container">
-                                <p>
-                                    <span>--Product description--</span>
-                                    <br/>
-                                    <span>--Materials--</span>
-                                    <br/>
-                                    <span>--Shipping and Return--</span>
-                                    <br/>
-                                    <span>--Dimensions--</span>
-                                </p>
-                            </div>
-                        </p>
+                    <Link to="../t-shirts" className="back-button">← Back to all shirts</Link>
+                    <div className="shirt-detail-img-container">
+                        <div className="shirt-hero-img-container">
+                            <img src={`/images/${shirtData.img}`} alt="shirt" className="shirt-hero-img"/>
+                        </div>
+                        <div className="shirt-details-container">
+                            <span className="shirt-details-name">{shirtData.name}</span>
+                            <p>
+                                <span className="shirt-details-price">${shirtData.price['$numberDecimal']}</span>
+                                <br/>
+                                <i className="shirt-details-price-info">Tax included. Shipping calculated at checkout.</i>
+                                <br/>
+                                <br/>
+                                <span>Brand: <span className="bold">{shirtData.brand}</span></span>
+                                <br/>
+                                <br/>
+                                <span>Colour: <span className="bold">White</span></span>
+                                <br/>
+                                <br/>
+                                <span>Size:</span>
+                                <br/>
+                                <button className="shirt-details-size-btn"> OSFA </button>
+                                <br/>
+                                <br/>
+                                <span>Quantity:</span>
+                                <br/>
+                                <div class="shirt-quanitity-container">
+                                    <button className="shirt-quantity-button" onClick={handleClickDecrement}>-</button>
+                                    <span className="shirt-quantity-count">{shirtCount}</span>
+                                    <button className="shirt-quantity-button" onClick={handleClickIncrement}>+</button>
+                                </div>
+                                <br/>
+                                <button className="shirt-cart-button" onClick={handleAddToCart}>Add to Cart</button>
+                                <div className="shirt-details-description-container">
+                                    <p>
+                                        <span>--Product description--</span>
+                                        <br/>
+                                        <span>--Materials--</span>
+                                        <br/>
+                                        <span>--Shipping and Return--</span>
+                                        <br/>
+                                        <span>--Dimensions--</span>
+                                    </p>
+                                </div>
+                            </p>
+                        </div>
                     </div>
                 </div>
             ) : <h2>Loading...</h2>}

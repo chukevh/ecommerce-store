@@ -9,20 +9,20 @@ export default function UserProfileLayout() {
         <>
             <nav className="user-profile-nav">
                 <NavLink 
-                    to="/user-profile"
+                    to="."
                     end
                     style={({ isActive }) => isActive ? activeStyle : null}
                 >
                     Profile
                 </NavLink>
                 <NavLink 
-                    to="/user-profile/orders"
+                    to="orders"
                     style={({ isActive }) => isActive ? activeStyle : null}
                 >
                     Orders
                 </NavLink>
                 <NavLink 
-                    to="/user-profile/logout"
+                    to="logout"
                     style={({ isActive }) => isActive ? activeStyle : null}
                 >
                     Logout
