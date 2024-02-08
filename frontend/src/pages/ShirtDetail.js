@@ -64,7 +64,7 @@ export default function ShirtDetail() {
                                 <br/>
                                 <span>Quantity:</span>
                                 <br/>
-                                <div class="shirt-quanitity-container">
+                                <div className="shirt-quanitity-container">
                                     <button className="shirt-quantity-button" onClick={handleClickDecrement}>-</button>
                                     <span className="shirt-quantity-count">{shirtCount}</span>
                                     <button className="shirt-quantity-button" onClick={handleClickIncrement}>+</button>

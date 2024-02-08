@@ -402,6 +402,7 @@ a.nav-text  {
     border: 0px;
 }
 
+
 /* .shirt-quantity-count {
 
 } */
@@ -415,9 +416,23 @@ a.nav-text  {
     padding: 12px 0px;
 }
 
-/* .shirt-details-description-container {
+/* SHIRT PAGES - SHIRT DESCRIPTION */
+.shirt-details-description-container {
+    padding-top: 12px;
+    display: flex;
+    flex-direction: column;
     
-} */
+}
+.shirt-description-button {
+    padding: 12px;
+    background-color: white;
+    cursor: pointer;
+    border-width: 0 0 1px 0;
+    border-color: #DCDCDC;
+    border-bottom-style: solid;
+    font-size: 15px;
+}
+
 
 /* User Profile */
 .user-profile-nav {
