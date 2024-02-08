@@ -1,6 +1,9 @@
 import React from "react"
 import { Link, useParams } from "react-router-dom"
+import ShirtDetailsDescription from "../components/ShirtDetailsDescription"
+import ShirtDataContext from "../components/ShirtDataContext"
 //import star from "../images/star.png"
+
 
 export default function ShirtDetail() {
     const [shirtData, setShirtData] = React.useState(null)
@@ -35,7 +38,7 @@ export default function ShirtDetail() {
         <div>
             {shirtData ? (
                 <div className="shirt-hero-container">
-                    <Link to="../t-shirts" className="back-button">← Back to all shirts</Link>
+                    <Link to=".." relative="path" className="back-button">← Back to all shirts</Link>
                     <div className="shirt-detail-img-container">
                         <div className="shirt-hero-img-container">
                             <img src={`/images/${shirtData.img}`} alt="shirt" className="shirt-hero-img"/>
@@ -68,17 +71,9 @@ export default function ShirtDetail() {
                                 </div>
                                 <br/>
                                 <button className="shirt-cart-button" onClick={handleAddToCart}>Add to Cart</button>
-                                <div className="shirt-details-description-container">
-                                    <p>
-                                        <span>--Product description--</span>
-                                        <br/>
-                                        <span>--Materials--</span>
-                                        <br/>
-                                        <span>--Shipping and Return--</span>
-                                        <br/>
-                                        <span>--Dimensions--</span>
-                                    </p>
-                                </div>
+                                <ShirtDataContext.Provider value={shirtData}>
+                                    <ShirtDetailsDescription />
+                                </ShirtDataContext.Provider>
                             </p>
                         </div>
                     </div>
