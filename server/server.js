@@ -4,13 +4,29 @@ import mongoose from "mongoose";
 import User from "./models/user.js";
 import dotenv from "dotenv";
 import Shirt from "./models/shirt.js"
+import path from "path"
 
 dotenv.config();
 
 const app = express()
 app.use(express.json())
 
-app.get("/", (req,res) => {
+const _dirname = path.dirname("")
+const buildPath = path.join(_dirname, "../frontend/build")
+app.use(express.static(buildPath))
+
+app.get("/", function(req,res) {
+    res.sendFile(
+        path.join(__dirname, "../frontend/build/index.html"),
+        function (err) {
+            if (err) {
+                res.status(500).send(err);
+            }
+        }
+    )
+})
+
+app.get("/api", (req,res) => {
     res.send("API is running..");
 });
 
@@ -76,7 +92,6 @@ app.post("/api/t-shirts/update-manual", async(req,res) => {
             const shirt = await Shirt.updateOne(
                 {"id" : [id]}, 
                 { $set: changeArray[id-1]  }
-                // { $set: { "imgBack": "base-back.png" } }
             );
             console.log(shirt)
         }
