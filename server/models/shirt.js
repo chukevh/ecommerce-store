@@ -14,7 +14,11 @@ const shirtSchema = mongoose.Schema(
         imgBack: {
             type: String,
             required: true
-        },        
+        },
+        genre: {
+            type: String,
+            required: true
+        },         
         brand: {
             type: String,
             required: true

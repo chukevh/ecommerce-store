@@ -2,7 +2,7 @@ import React from "react"
 import ShirtCard from "../components/ShirtCard";
 import { Link, useSearchParams } from "react-router-dom";
 
-export default function Shirts() {
+export default function Search() {
     const [shirts, setShirts] = React.useState([])
     const [searchParams, setSearchParams] = useSearchParams()
 
