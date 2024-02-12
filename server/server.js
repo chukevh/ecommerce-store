@@ -12,7 +12,6 @@ dotenv.config();
 
 const app = express()
 app.use(express.json())
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const _dirname = path.dirname("")
