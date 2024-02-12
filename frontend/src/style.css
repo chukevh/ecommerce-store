@@ -282,7 +282,7 @@ a.nav-text  {
     justify-content: center;
 }
 
-.shirt-brand {
+.shirt-genre-button {
     padding: 7px 20px;
     font-style: normal;
     font-size: 15px; 
@@ -295,11 +295,11 @@ a.nav-text  {
     cursor: pointer;
 }
 
-.shirt-brand:hover, .shirt-brand.selected {
+.shirt-genre-button:hover, .shirt-genre-button.selected {
     background-color: #E8E8E8;
 }
 
-.shirt-brand.clear-filters {
+.shirt-genre-button.clear-filters-button {
     border: none;
 }
 
