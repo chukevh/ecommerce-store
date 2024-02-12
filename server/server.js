@@ -5,12 +5,16 @@ import User from "./models/user.js";
 import dotenv from "dotenv";
 import Shirt from "./models/shirt.js"
 import path from "path"
+import { dirname } from "path"
+import { fileURLToPath } from 'url';
 
 dotenv.config();
 
 const app = express()
 app.use(express.json())
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const _dirname = path.dirname("")
 const buildPath = path.join(_dirname, "../frontend/build")
 app.use(express.static(buildPath))
