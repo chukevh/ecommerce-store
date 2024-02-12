@@ -273,7 +273,31 @@ a.nav-text  {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 5%;
+    justify-content: flex-start;
+}
+
+.shirt-filters-container {
+    display: flex;
+    gap: 10px;
     justify-content: center;
+}
+
+.shirt-brand {
+    padding: 5px 20px;
+    font-style: normal;
+    font-weight: 500;
+    color: black;
+    text-decoration: none;
+    border-radius: 30px; 
+    border: 1px solid black;
+}
+
+.shirt-brand:hover, .shirt-brand.selected {
+    background-color: #E8E8E8;
+}
+
+.shirt-brand.clear-filters {
+    border: none;
 }
 
 .shirtcard-container {
@@ -325,7 +349,7 @@ a.nav-text  {
     font-weight: bold;
 }
 
-/* SHIRT PAGES */
+/* SHIRT DETAILS PAGES */
 .shirt-hero-container {
     padding-top: 1.5%;
     padding-left: 4%;
