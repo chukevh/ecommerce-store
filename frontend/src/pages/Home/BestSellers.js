@@ -1,5 +1,5 @@
 import Card from "./Card.js"
-import shirtData from "../data/shirtData.js"
+import shirtData from "../../data/shirtData.js"
 
 export default function BestSellers() {
     const cardElements = shirtData.map((shirt) => {

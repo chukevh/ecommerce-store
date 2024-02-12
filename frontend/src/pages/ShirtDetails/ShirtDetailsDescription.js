@@ -1,5 +1,5 @@
 import React from "react"
-import ShirtDataContext from "./ShirtDataContext" 
+import ShirtDataContext from "../../components/ShirtDataContext" 
 
 export default function ShirtDetailsDescription() {
     const shirtData = React.useContext(ShirtDataContext)

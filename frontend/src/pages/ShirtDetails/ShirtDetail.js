@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, useParams } from "react-router-dom"
-import ShirtDetailsDescription from "../components/ShirtDetailsDescription"
-import ShirtDataContext from "../components/ShirtDataContext"
+import ShirtDetailsDescription from "./ShirtDetailsDescription"
+import ShirtDataContext from "../../components/ShirtDataContext"
 //import star from "../images/star.png"
 
 

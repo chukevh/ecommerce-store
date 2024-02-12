@@ -1,6 +1,6 @@
-import MainContent from "../components/MainContent.js"
-import BestSellers from "../components/BestSellers.js"
-import BottomDetails from "../components/BottomDetails.js"
+import MainContent from "./MainContent.js"
+import BestSellers from "./BestSellers.js"
+import BottomDetails from "../../components/BottomDetails.js"
 
 
 export default function Home() {

@@ -1,14 +1,14 @@
 //import SubscribeBox from "./components/SubscribeBox"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import SignUp from "./pages/SignUp.js"
-import Home from "./pages/Home.js"
-import Shirts from "./pages/Shirts.js"
-import ShirtDetail from "./pages/ShirtDetail.js"
+import Home from "./pages/Home/Home.js"
+import Shirts from "./pages/Shirts/Shirts.js"
+import ShirtDetail from "./pages/ShirtDetails/ShirtDetail.js"
 import Layout from "./components/Layout.js"
 import UserProfileLayout from "./components/UserProfileLayout.js"
-import UserProfileDetails from "./components/UserProfileDetails.js"
-import UserOrderDetails from "./components/UserOrderDetails.js"
-import UserLogout from "./components/UserLogout.js"
+import UserProfileDetails from "./pages/UserProfile/UserProfileDetails.js"
+import UserOrderDetails from "./pages/UserProfile/UserOrderDetails.js"
+import UserLogout from "./pages/UserProfile/UserLogout.js"
 
 export default function App() {
   return (

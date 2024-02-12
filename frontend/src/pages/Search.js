@@ -1,5 +1,5 @@
 import React from "react"
-import ShirtCard from "../components/ShirtCard";
+import ShirtCard from "./Shirts/ShirtCard";
 import { Link, useSearchParams } from "react-router-dom";
 
 export default function Search() {

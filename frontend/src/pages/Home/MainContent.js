@@ -1,4 +1,4 @@
-import montage from "../images/shirts-montage.jpg"
+import montage from "../../images/shirts-montage.jpg"
 
 export default function MainContent() {
     return (

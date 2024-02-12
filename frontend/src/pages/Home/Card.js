@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import star from "../images/star.png"
+import star from "../../images/star.png"
 
 export default function Card(props) {
     return (
