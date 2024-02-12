@@ -1,13 +1,15 @@
 # Getting Started with ecommerce-store
-This project is currently in progress
+This project is currently in progress.
 
-A live demo of this project can be found at https://chukevh.github.io/kevs-shirt-shop *Currently not working*
+*Currently not working*
+A live demo of this project can be found at https://chukevh.github.io/kevs-shirt-shop 
 
 
 ## Available Scripts
 
 Currently this project has two parts:
-The frontend server written in ReactJS, and the backend server containing all APIs written in NodeJS
+The frontend server written in ReactJS, and the backend server containing all APIs written in NodeJS. 
+Note the backend server connects to a MongoDB database to pull all the data.
 
 In the project directory, you can open up the server fold and run:
 
@@ -16,7 +18,7 @@ In the project directory, you can open up the server fold and run:
 Runs the backend server in the development mode.\
 Open [http://localhost:5000](http://localhost:5000) to view it in your browser.
 
-The server will be ready to make API calls once it is connected to a MongoDB
+The server will be ready to make API calls once it is connected to a MongoDB.
 
 
 After running the backend server you can start the frontend project using:
