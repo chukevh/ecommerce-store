@@ -22,6 +22,7 @@ export default function Shirts() {
         <ShirtCard 
             key={shirt.id}
             shirt={shirt}
+            state={{ search: searchParams.toString()}}
         />
     ))
 
@@ -36,6 +37,7 @@ export default function Shirts() {
         })
     }
 
+    
     return (
         <div className="shirt-main-content">
             <h1 >Explore our Shirt Collection</h1>

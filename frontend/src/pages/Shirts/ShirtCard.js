@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 export default function ShirtCard(props) {
     return (
         <div key={props.shirt.id} className="shirtcard-container">
-            <Link to={`/t-shirts/${props.shirt.id}`}>
+            <Link to={`/t-shirts/${props.shirt.id}`} state={props.state}>
                 {props.shirt.stock === 0 && <div className="shirtcard-badge">SOLD OUT</div>}
                 <img src={`/images/${props.shirt.img}`} className="shirtcard-img" alt={`${props.shirt.img}`}/>
                 <div className="shirtcard-details">

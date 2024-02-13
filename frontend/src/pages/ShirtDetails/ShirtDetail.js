@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, useParams } from "react-router-dom"
+import { Link, useParams, useLocation } from "react-router-dom"
 import ShirtDetailsDescription from "./ShirtDetailsDescription"
 import ShirtDataContext from "../../components/ShirtDataContext"
 //import star from "../images/star.png"
@@ -9,7 +9,8 @@ export default function ShirtDetail() {
     const [shirtData, setShirtData] = React.useState(null)
     const [shirtCount, setShirtCount] = React.useState(0)
     const params = useParams()
-
+    const location = useLocation()
+    
     React.useEffect(() => {
         fetch(`/api/t-shirts/${params.id}`)
             .then(res => res.json())
@@ -34,18 +35,21 @@ export default function ShirtDetail() {
         //API to add to cart
     }
 
+    const search = `?${location.state?.search}` || ""
+    // const search = location.state && location.state.search || ""
+
     return (
         <div>
             {shirtData ? (
                 <div className="shirt-hero-container">
-                    <Link to=".." relative="path" className="back-button">← Back to all shirts</Link>
+                    <Link to={`../${search}`} relative="path" className="back-button">← Back to all shirts</Link>
                     <div className="shirt-detail-img-container">
                         <div className="shirt-hero-img-container">
                             <img src={`/images/${shirtData.img}`} alt="shirt" className="shirt-hero-img"/>
                         </div>
                         <div className="shirt-details-container">
                             <span className="shirt-details-name">{shirtData.name}</span>
-                            <p>
+                            <div>
                                 <span className="shirt-details-price">${shirtData.price['$numberDecimal']}</span>
                                 <br/>
                                 <i className="shirt-details-price-info">Tax included. Shipping calculated at checkout.</i>
@@ -74,7 +78,7 @@ export default function ShirtDetail() {
                                 <ShirtDataContext.Provider value={shirtData}>
                                     <ShirtDetailsDescription />
                                 </ShirtDataContext.Provider>
-                            </p>
+                            </div>
                         </div>
                     </div>
                 </div>
