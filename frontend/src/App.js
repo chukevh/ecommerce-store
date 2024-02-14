@@ -20,6 +20,7 @@ export default function App() {
             <Route path="sign-up" element={<SignUp />}/>
             <Route path="t-shirts" element={<Shirts />}/>
             <Route path="t-shirts/:id" element={<ShirtDetail />}/>
+            <h1>hello</h1>
 
             <Route path="user-profile" element={<UserProfileLayout />}>
               <Route index element={<UserProfileDetails />}/>

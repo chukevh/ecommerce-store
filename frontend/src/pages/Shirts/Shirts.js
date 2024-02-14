@@ -1,6 +1,6 @@
 import React from "react"
 import ShirtCard from "./ShirtCard";
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { getShirtData } from "../../api";
 
 export default function Shirts() {
