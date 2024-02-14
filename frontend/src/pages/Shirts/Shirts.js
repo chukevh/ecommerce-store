@@ -1,23 +1,17 @@
 import React from "react"
 import ShirtCard from "./ShirtCard";
-import { useSearchParams } from "react-router-dom";
+import { useLoaderData, useSearchParams } from "react-router-dom";
 import { getShirtData } from "../../api";
 
+export function loader() {
+    return getShirtData()
+}
+
 export default function Shirts() {
-    const [shirts, setShirts] = React.useState([])
     const [searchParams, setSearchParams] = useSearchParams()
-
+    const shirts = useLoaderData()
     const genreFilter = searchParams.get("genre")
-
-    React.useEffect(() => {
-        async function loadShirts() {
-            const data = await getShirtData()
-            setShirts(data)
-        }
-
-        loadShirts()
-    }, []) 
-
+    
     const displayedShirts = genreFilter 
         ? shirts.filter(shirt => shirt.genre.toLowerCase().includes(genreFilter.toLowerCase()))
         : shirts

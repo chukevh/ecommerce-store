@@ -1,7 +1,13 @@
 import Card from "./Card.js"
-import shirtData from "../../data/shirtData.js"
+import { useLoaderData } from "react-router-dom"
+
 
 export default function BestSellers() {
+    const shirtData = useLoaderData()
+    console.log(shirtData)
+    shirtData.sort((s1, s2) => s2.rating['$numberDecimal'] - s1.rating['$numberDecimal'])
+    shirtData.length = 6
+    
     const cardElements = shirtData.map((shirt) => {
         return (
         <Card
@@ -9,7 +15,8 @@ export default function BestSellers() {
           shirt={shirt}
         />
         )
-      }) 
+      })
+
     return (
         <section className="bestsellers">
             <h1>Best Sellers</h1>
@@ -17,7 +24,6 @@ export default function BestSellers() {
                 {cardElements}
             </div>
         </section>
-
     )
 }
 
