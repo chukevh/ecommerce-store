@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.a5956604.css",
-    "main.js": "/static/js/main.3bb5d746.js",
+    "main.css": "/static/css/main.ed196cac.css",
+    "main.js": "/static/js/main.8a2a562f.js",
     "static/media/shirts-montage.jpg": "/static/media/shirts-montage.239c4b2f385241ce1e8f.jpg",
     "static/media/logo.png": "/static/media/logo.3bdf23f80cb882d56537.png",
     "static/media/star.png": "/static/media/star.df61420889de2df97847.png",
     "index.html": "/index.html",
-    "main.a5956604.css.map": "/static/css/main.a5956604.css.map",
-    "main.3bb5d746.js.map": "/static/js/main.3bb5d746.js.map"
+    "main.ed196cac.css.map": "/static/css/main.ed196cac.css.map",
+    "main.8a2a562f.js.map": "/static/js/main.8a2a562f.js.map"
   },
   "entrypoints": [
-    "static/css/main.a5956604.css",
-    "static/js/main.3bb5d746.js"
+    "static/css/main.ed196cac.css",
+    "static/js/main.8a2a562f.js"
   ]
 }
