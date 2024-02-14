@@ -12,7 +12,6 @@ export async function getShirtData() {
 }
 
 export async function getSingleShirtData(paramsId) {
-    console.log(paramsId)
     const res = await fetch(`/api/t-shirts/${paramsId}`)
     if (!res.ok) {
         throw new Error ({

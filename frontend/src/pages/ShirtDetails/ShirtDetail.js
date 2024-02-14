@@ -5,8 +5,8 @@ import ShirtDataContext from "../../components/ShirtDataContext"
 import { getSingleShirtData } from "../../api"
 //import star from "../images/star.png"
 
-export function loader(paramsId) {
-    return getSingleShirtData(paramsId)
+export function loader({ params }) {
+    return getSingleShirtData(params.id)
 }
 
 export default function ShirtDetail() {

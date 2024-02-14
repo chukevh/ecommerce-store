@@ -11,6 +11,7 @@ import UserOrderDetails from "./pages/UserProfile/UserOrderDetails.js"
 import UserLogout from "./pages/UserProfile/UserLogout.js"
 import PageNotFound from "./pages/PageNotFound.js"
 import Error from "./components/Error.js"
+import { requireAuth } from "./utils.js"
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<Layout />} errorElement={<Error />}>
@@ -27,22 +28,30 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route 
       path="t-shirts/:id" 
       element={<ShirtDetail />}
-      loader={({ params }) => {
-        return singleShirtLoader(params.id)
-      }}
+      loader={singleShirtLoader}
     />
     
     <Route path="user-profile" element={<UserProfileLayout />}>
-      <Route index element={<UserProfileDetails />}/>
-      <Route path="details" element={<UserProfileDetails />}/>
-      <Route path="orders" element={<UserOrderDetails />}/>
-      <Route path="logout" element={<UserLogout />}/>
+      <Route 
+        index 
+        element={<UserProfileDetails />}
+        loader={async () => await requireAuth()}
+      />
+      <Route 
+        path="details" 
+        element={<UserProfileDetails />}
+        loader={async () => await requireAuth()}
+      />
+      <Route 
+        path="orders" 
+        element={<UserOrderDetails />}/>
+        loader={async () => await requireAuth()}
+      <Route 
+        path="logout" 
+        element={<UserLogout />}
+        loader={async () => await requireAuth()}
+      />
     </Route>
-
-    <Route>
-      <Route path="protected" element={<h1>Super secret stuff</h1>}/>
-    </Route>
-
     <Route path="*" element={<PageNotFound />}/>
   </Route>
 ))
