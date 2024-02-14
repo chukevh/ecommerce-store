@@ -27,6 +27,7 @@ export default function Header() {
                 >
                     Sign-Up
                 </NavLink>
+                
                 <Link 
                     to="search"         
                     className="nav-links-img-container"

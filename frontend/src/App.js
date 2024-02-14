@@ -2,7 +2,7 @@
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from "react-router-dom"
 import SignUp from "./pages/SignUp.js"
 import Home, { loader as homeShirtLoader} from "./pages/Home/Home.js"
-import Shirts, { loader as shirtLoader } from "./pages/Shirts/Shirts.js"
+import Shirts, { loader as shirtsLoader } from "./pages/Shirts/Shirts.js"
 import ShirtDetail, { loader as singleShirtLoader} from "./pages/ShirtDetails/ShirtDetail.js"
 import Layout from "./components/Layout.js"
 import UserProfileLayout from "./components/UserProfileLayout.js"
@@ -22,7 +22,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route 
       path="t-shirts" 
       element={<Shirts />} 
-      loader={shirtLoader} 
+      loader={shirtsLoader} 
     />
     <Route 
       path="t-shirts/:id" 
@@ -38,6 +38,11 @@ const router = createBrowserRouter(createRoutesFromElements(
       <Route path="orders" element={<UserOrderDetails />}/>
       <Route path="logout" element={<UserLogout />}/>
     </Route>
+
+    <Route>
+      <Route path="protected" element={<h1>Super secret stuff</h1>}/>
+    </Route>
+
     <Route path="*" element={<PageNotFound />}/>
   </Route>
 ))

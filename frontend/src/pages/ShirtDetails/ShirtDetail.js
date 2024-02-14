@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, useParams, useLocation, useLoaderData } from "react-router-dom"
+import { Link, useLocation, useLoaderData } from "react-router-dom"
 import ShirtDetailsDescription from "./ShirtDetailsDescription"
 import ShirtDataContext from "../../components/ShirtDataContext"
 import { getSingleShirtData } from "../../api"

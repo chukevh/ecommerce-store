@@ -18,7 +18,7 @@ export default function SignUp() {
                 [name] : type === "checkbox" ? checked : value
             }
         })
-        console.log(userDetails.email)
+        //console.log(userDetails.email)
     }
 
     function handleSubmit(event) {

@@ -4,18 +4,18 @@ import { useLoaderData } from "react-router-dom"
 
 export default function BestSellers() {
     const shirtData = useLoaderData()
-    console.log(shirtData)
+    
     shirtData.sort((s1, s2) => s2.rating['$numberDecimal'] - s1.rating['$numberDecimal'])
     shirtData.length = 6
     
     const cardElements = shirtData.map((shirt) => {
         return (
-        <Card
-          key={shirt.id}
-          shirt={shirt}
-        />
-        )
-      })
+            <Card
+            key={shirt.id}
+            shirt={shirt}
+            />
+        )}
+    )
 
     return (
         <section className="bestsellers">

@@ -35,7 +35,6 @@ export default function Shirts() {
         })
     }
 
-    
     return (
         <div className="shirt-main-content">
             <h1 >Explore our Shirt Collection</h1>
