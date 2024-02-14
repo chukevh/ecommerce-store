@@ -1,6 +1,7 @@
 import React from "react"
 import ShirtCard from "./ShirtCard";
 import { Link, useSearchParams } from "react-router-dom";
+import { getShirtData } from "../../api";
 
 export default function Shirts() {
     const [shirts, setShirts] = React.useState([])
@@ -9,9 +10,12 @@ export default function Shirts() {
     const genreFilter = searchParams.get("genre")
 
     React.useEffect(() => {
-        fetch("/api/t-shirts")
-            .then(res => res.json())
-            .then(data => setShirts(data))
+        async function loadShirts() {
+            const data = await getShirtData()
+            setShirts(data)
+        }
+
+        loadShirts()
     }, []) 
 
     const displayedShirts = genreFilter 

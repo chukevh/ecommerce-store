@@ -18,16 +18,6 @@ const _dirname = path.dirname("")
 const buildPath = path.join(_dirname, "../frontend/build")
 app.use(express.static(buildPath))
 
-app.get("/", function(req,res) {
-    res.sendFile(
-        path.join(__dirname, "../frontend/build/index.html"),
-        function (err) {
-            if (err) {
-                res.status(500).send(err);
-            }
-        }
-    )
-})
 
 app.get("/api", (req,res) => {
     res.send("API is running..");
@@ -60,6 +50,18 @@ app.post("/api/sign-up", async(req,res) => {
     try {
         const user = await User.create(req.body);
         res.status(200).json(user);
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).json({message: error.message});
+    }
+})
+
+
+// Update DB with a new shirt
+app.post("/api/shirt", async(req,res) => {
+    try {
+        const shirt = await Shirt.create(req.body);
+        res.status(200).json(shirt);
     } catch (error) {
         console.log(error.message);
         res.status(500).json({message: error.message});
@@ -104,6 +106,17 @@ app.post("/api/t-shirts/update-manual", async(req,res) => {
         console.log(error.message);
         res.status(500).json({message: error.message});
     }
+})
+
+app.get("*", function(req,res) {
+    res.sendFile(
+        path.join(__dirname, "../frontend/build/index.html"),
+        function (err) {
+            if (err) {
+                res.status(500).send(err);
+            }
+        }
+    )
 })
 
 const PORT = process.env.PORT;

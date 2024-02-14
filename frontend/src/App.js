@@ -9,6 +9,7 @@ import UserProfileLayout from "./components/UserProfileLayout.js"
 import UserProfileDetails from "./pages/UserProfile/UserProfileDetails.js"
 import UserOrderDetails from "./pages/UserProfile/UserOrderDetails.js"
 import UserLogout from "./pages/UserProfile/UserLogout.js"
+import PageNotFound from "./pages/PageNotFound.js"
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
               <Route path="orders" element={<UserOrderDetails />}/>
               <Route path="logout" element={<UserLogout />}/>
             </Route>
+            <Route path="*" element={<PageNotFound />}/>
           </Route>
         </Routes>
       </BrowserRouter>
