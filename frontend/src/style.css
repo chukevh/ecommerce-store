@@ -227,7 +227,6 @@ a.nav-text  {
     border-radius: 5px;
     background: white;
     max-height: 100%;
-
 }
 
 .signup-input {
@@ -259,6 +258,11 @@ a.nav-text  {
 
 .signup-sub-container > input {
     margin-right: 10px;
+}
+
+/* Login */
+.login-text {
+    color: red;
 }
 
 /* SHIRTS PAGE */
