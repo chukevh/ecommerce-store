@@ -41,6 +41,8 @@ export default function Login() {
     
     return (
         <div className="form-container">
+            <h1>Sign in to your account</h1>
+            { message && <h3 className="login-text">{message}</h3>}
             <form className="form-signup" onSubmit={handleSubmit}>
                 <input
                     className="signup-input"
@@ -71,7 +73,6 @@ export default function Login() {
                 />
                 <button className="signup-button">Login</button>
             </form>
-            { message && <h2 className="login-text">{message}</h2>}
         </div>
     )
 }

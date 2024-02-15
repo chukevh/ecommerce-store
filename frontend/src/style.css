@@ -214,7 +214,7 @@ a.nav-text  {
     align-items: center;
     flex-direction: column;
     height: 80vh;
-    padding-top: 50px;
+    padding-top: 30px;
 }
 
 .form-signup {
@@ -262,7 +262,7 @@ a.nav-text  {
 
 /* Login */
 .login-text {
-    color: red;
+    color: #cc0000;
 }
 
 /* SHIRTS PAGE */
