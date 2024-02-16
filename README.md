@@ -1,9 +1,9 @@
 # Getting Started with ecommerce-store
 This project is currently in progress.
 
-*Currently not working*
+*Not all features are working*
 
-A live demo of this project can be found at [https://chukevh.github.io/kevs-shirt-shop ](http://kevshirtshop.com/)
+A live demo of this project can be found [here](http://kevshirtshop.com/)
 
 
 ## Available Scripts
