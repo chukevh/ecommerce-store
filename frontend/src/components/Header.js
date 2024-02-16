@@ -12,8 +12,11 @@ export default function Header() {
 
     return (
         <nav className="nav-items">
-            <img src={logo} alt="Shirt Store Logo" className="nav-logo"/>
-            <Link to="." className="nav-text">Kev's Shirt Shop</Link>
+            
+            <Link to="." className="nav-text">
+                <img src={logo} alt="Shirt Store Logo" className="nav-logo"/>
+                Kev's Shirt Shop
+            </Link>
             <div className="nav-links">
                 <NavLink 
                     to="t-shirts"

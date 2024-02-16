@@ -56,6 +56,11 @@ app.post("/api/sign-up", async(req,res) => {
     }
 })
 
+app.post("/api/login", async(req,res) => {
+    console.log(req.body)
+    res.status(200).send("Login received")
+})
+
 /* ADMIN FUNCTIONS */
 // // Update DB with a new shirt
 // app.post("/api/shirt", async(req,res) => {
