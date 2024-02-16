@@ -254,6 +254,10 @@ a.nav-text  {
     cursor: pointer;
 }
 
+.signup-button:hover {
+    background-color: grey;
+}
+
 .signup-sub-container {
     display: flex;
     align-items: center;

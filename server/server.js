@@ -57,8 +57,26 @@ app.post("/api/sign-up", async(req,res) => {
 })
 
 app.post("/api/login", async(req,res) => {
-    console.log(req.body)
-    res.status(200).send("Login received")
+    try {
+        console.log("Attempting login")
+        console.log(req.body)
+        const [user] = await User.find({ email : req.body.email })
+        if (user) {
+            if (user.password === req.body.password) {
+                res.status(200).json("Login Successful")
+                console.log("Login successful")
+            } else {
+                res.status(200).json("Login failed, password is incorrect")
+                console.log("Login failed, password incorrect")
+            }
+        } else {
+            res.status(200).json("Email not found")
+            console.log("Email not found")
+        }
+    } catch (error) {
+        console.log(error.message)
+        res.status(500).json({message: error.message})
+    }
 })
 
 /* ADMIN FUNCTIONS */

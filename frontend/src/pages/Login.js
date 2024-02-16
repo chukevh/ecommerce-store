@@ -1,5 +1,6 @@
 import React from "react"
 import { useLoaderData } from "react-router-dom"
+import { loginUser } from "../api"
 
 export function loader({ request }) {
     return new URL(request.url).searchParams.get("message")
@@ -10,7 +11,6 @@ export default function Login() {
         {
             email:"",
             password:"",
-            passwordConfirm:"",
         }
     )
 
@@ -29,14 +29,9 @@ export default function Login() {
 
     function handleSubmit(event) {
         event.preventDefault()
-        if (userDetails.password === userDetails.passwordConfirm) {
-            console.log("Sucessfully logged in")
-        } else {
-            console.log("Passwords do not match")
-        }
-
         console.log(userDetails)
-        // API send
+        loginUser(userDetails)
+            .then(data => console.log(data))
     }
     
     return (
@@ -61,15 +56,6 @@ export default function Login() {
                     name="password"
                     id="password"
                     value={userDetails.password}
-                />
-                <input
-                    className="signup-input"
-                    type="text"
-                    placeholder="Confirm Password"
-                    onChange={handleChange}
-                    name="passwordConfirm"
-                    id="passwordConfirm"
-                    value={userDetails.passwordConfirm}
                 />
                 <button className="signup-button">Login</button>
             </form>
