@@ -23,7 +23,7 @@ app.get("/api", (req,res) => {
     res.send("API is running..");
 });
 
-// Load products from server
+// Load all shirts data from server
 app.get("/api/t-shirts", async(req,res) => {
     try {
         const shirts = await Shirt.find({});
@@ -34,7 +34,7 @@ app.get("/api/t-shirts", async(req,res) => {
     //res.json(shirts);
 });
 
-// Load product from server
+// Load specific shirt data from server
 app.get("/api/t-shirts/:id", async(req,res) => {
     try {
         const queryId = parseInt(req.params.id)
@@ -56,57 +56,57 @@ app.post("/api/sign-up", async(req,res) => {
     }
 })
 
+/* ADMIN FUNCTIONS */
+// // Update DB with a new shirt
+// app.post("/api/shirt", async(req,res) => {
+//     try {
+//         const shirt = await Shirt.create(req.body);
+//         res.status(200).json(shirt);
+//     } catch (error) {
+//         console.log(error.message);
+//         res.status(500).json({message: error.message});
+//     }
+// })
 
-// Update DB with a new shirt
-app.post("/api/shirt", async(req,res) => {
-    try {
-        const shirt = await Shirt.create(req.body);
-        res.status(200).json(shirt);
-    } catch (error) {
-        console.log(error.message);
-        res.status(500).json({message: error.message});
-    }
-})
+// // Update all shirts data with filter
+// app.post("/api/t-shirts/update", async(req,res) => {
+//     try {
+//         const shirt = await Shirt.updateMany(
+//             {}, 
+//             { $set: { "imgBack": "base-back.png" } }
+//         );
+//         res.status(200).json(shirt)
+//     } catch (error) {
+//         console.log(error.message);
+//         res.status(500).json({message: error.message});
+//     }
+// })
 
-// Update all shirts data with filter
-app.post("/api/t-shirts/update", async(req,res) => {
-    try {
-        const shirt = await Shirt.updateMany(
-            {}, 
-            { $set: { "imgBack": "base-back.png" } }
-        );
-        res.status(200).json(shirt)
-    } catch (error) {
-        console.log(error.message);
-        res.status(500).json({message: error.message});
-    }
-})
-
-// Update all shirts data
-app.post("/api/t-shirts/update-manual", async(req,res) => {
-    try {
-        let changeArray = [
-            { genre: "games"},
-            { genre: "misc"},
-            { genre: "games"},
-            { genre: "games"},
-            { genre: "anime"},
-            { genre: "misc"},
-        ]
-        for (let id = 1; id < 7; id++) {
-            const shirt = await Shirt.updateOne(
-                {"id" : [id]}, 
-                { $set: changeArray[id-1]  }
-            );
-            console.log(shirt)
-        }
-        console.log("updated")
-        res.status(200).json(changeArray)
-    } catch (error) {
-        console.log(error.message);
-        res.status(500).json({message: error.message});
-    }
-})
+// // Update all shirts data
+// app.post("/api/t-shirts/update-manual", async(req,res) => {
+//     try {
+//         let changeArray = [
+//             { genre: "games"},
+//             { genre: "misc"},
+//             { genre: "games"},
+//             { genre: "games"},
+//             { genre: "anime"},
+//             { genre: "misc"},
+//         ]
+//         for (let id = 1; id < 7; id++) {
+//             const shirt = await Shirt.updateOne(
+//                 {"id" : [id]}, 
+//                 { $set: changeArray[id-1]  }
+//             );
+//             console.log(shirt)
+//         }
+//         console.log("updated")
+//         res.status(200).json(changeArray)
+//     } catch (error) {
+//         console.log(error.message);
+//         res.status(500).json({message: error.message});
+//     }
+// })
 
 app.get("*", function(req,res) {
     res.sendFile(
