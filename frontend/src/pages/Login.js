@@ -7,6 +7,7 @@ export function loader({ request }) {
 }
 
 export default function Login() {
+    const message = useLoaderData()
     const [userDetails, setUserDetails] = React.useState(
         {
             email:"",
@@ -14,8 +15,8 @@ export default function Login() {
         }
     )
 
-    const message = useLoaderData()
-    
+    const [status, setStatus] = React.useState("idle")
+    const [error, setError] = React.useState(null)
     
     function handleChange(event) {
         const {name, value} = event.target
@@ -29,15 +30,20 @@ export default function Login() {
 
     function handleSubmit(event) {
         event.preventDefault()
+        setStatus("submitting")
+        setError(null)
         console.log(userDetails)
         loginUser(userDetails)
             .then(data => console.log(data))
+            .catch(err => setError(err))
+            .finally(() => setStatus("idle"))        
     }
     
     return (
         <div className="form-container">
             <h1>Sign in to your account</h1>
             { message && <h3 className="login-text">{message}</h3>}
+            { error && <h3 className="login-text">{error}</h3>}
             <form className="form-signup" onSubmit={handleSubmit}>
                 <input
                     className="signup-input"
@@ -57,7 +63,7 @@ export default function Login() {
                     id="password"
                     value={userDetails.password}
                 />
-                <button className="signup-button">Login</button>
+                <button className="signup-button" disabled={status === "submitting" ? true : false}>{status === "submitting" ? "Logging in..." : "Login" }</button>
             </form>
         </div>
     )

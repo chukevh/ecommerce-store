@@ -63,14 +63,14 @@ app.post("/api/login", async(req,res) => {
         const [user] = await User.find({ email : req.body.email })
         if (user) {
             if (user.password === req.body.password) {
-                res.status(200).json("Login Successful")
+                res.status(200).json({ message: "Login Successful"})
                 console.log("Login successful")
             } else {
-                res.status(200).json("Login failed, password is incorrect")
-                console.log("Login failed, password incorrect")
+                res.status(401).json({ message: "Login failed, password is incorrect" })
+                console.log({ message: "Login failed, password incorrect"})
             }
         } else {
-            res.status(200).json("Email not found")
+            res.status(401).json("Email not found")
             console.log("Email not found")
         }
     } catch (error) {
