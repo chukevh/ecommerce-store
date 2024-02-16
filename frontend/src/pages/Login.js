@@ -1,9 +1,14 @@
 import React from "react"
-import { useLoaderData } from "react-router-dom"
+import { useLoaderData, Form } from "react-router-dom"
 import { loginUser } from "../api"
 
 export function loader({ request }) {
     return new URL(request.url).searchParams.get("message")
+}
+
+export async function action() {
+    console.log("returning action")
+    return null
 }
 
 export default function Login() {
@@ -44,7 +49,7 @@ export default function Login() {
             <h1>Sign in to your account</h1>
             { message && <h3 className="login-text">{message}</h3>}
             { error && <h3 className="login-text">{error}</h3>}
-            <form className="form-signup" onSubmit={handleSubmit}>
+            <Form method="post" className="form-signup">
                 <input
                     className="signup-input"
                     type="email"
@@ -64,7 +69,7 @@ export default function Login() {
                     value={userDetails.password}
                 />
                 <button className="signup-button" disabled={status === "submitting" ? true : false}>{status === "submitting" ? "Logging in..." : "Login" }</button>
-            </form>
+            </Form>
         </div>
     )
 }

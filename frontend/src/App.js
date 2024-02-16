@@ -12,7 +12,7 @@ import UserLogout from "./pages/UserProfile/UserLogout.js"
 import PageNotFound from "./pages/PageNotFound.js"
 import Error from "./components/Error.js"
 import { requireAuth } from "./utils.js"
-import Login, { loader as loginLoader } from "./pages/Login.js"
+import Login, { loader as loginLoader, action as loginAction } from "./pages/Login.js"
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<Layout />} errorElement={<Error />}>
@@ -31,7 +31,12 @@ const router = createBrowserRouter(createRoutesFromElements(
       loader={singleShirtLoader}
     />
     <Route path="sign-up" element={<SignUp />}/>
-    <Route path="login" element={<Login />} loader={loginLoader}/>
+    <Route 
+      path="login" 
+      element={<Login />} 
+      loader={loginLoader} 
+      action={loginAction}
+    />
     
     <Route path="user-profile" element={<UserProfileLayout />}>
       <Route 
