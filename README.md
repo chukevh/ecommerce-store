@@ -3,7 +3,7 @@ This project is currently in progress.
 
 *Currently not working*
 
-A live demo of this project can be found at https://chukevh.github.io/kevs-shirt-shop 
+A live demo of this project can be found at [https://chukevh.github.io/kevs-shirt-shop ](http://kevshirtshop.com/)
 
 
 ## Available Scripts
