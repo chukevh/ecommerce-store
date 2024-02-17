@@ -32,14 +32,14 @@ export async function loginUser(creds) {
         }
     )
     const data = await res.json()
-
+    
     if(!res.ok) {
-        throw new Error ({
-            message: "Failed to fetch shirt data",
+        throw {
+            message: data.message,
             statusText: res.statusText,
             status: res.status
-        })
+        }
     }
-    
+    setTimeout(() => { return data}, 2000)
     return data
 }

@@ -1,6 +1,7 @@
-import { NavLink, Outlet, redirect } from "react-router-dom"
+import { NavLink, Outlet, redirect, useNavigate } from "react-router-dom"
 
 export default function UserProfileLayout() {
+    const navigate = useNavigate()
     const activeStyle = {
         fontWeight: "bold",
         textDecoration: "underline"
@@ -9,6 +10,7 @@ export default function UserProfileLayout() {
     function handleLogout() {
         localStorage.setItem("loggedin", false)
         console.log("Login reset")
+        navigate("/", { replace: true })
     }
 
     return (

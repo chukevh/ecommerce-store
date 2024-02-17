@@ -1,37 +1,39 @@
 import React from "react"
-import { useLoaderData, Form, redirect } from "react-router-dom"
+import { useLoaderData, Form, redirect, useActionData, useNavigation } from "react-router-dom"
 import { loginUser } from "../api"
 
 export function loader({ request }) {
     return new URL(request.url).searchParams.get("message")
 }
 
+function wait(seconds) {
+    return new Promise(resolve => {
+       setTimeout(resolve, seconds * 1000);
+    });
+ } 
+
 export async function action({ request }) {
     const formData = await request.formData()
     const email = formData.get("email")
     const password = formData.get("password")
-    const data = await loginUser({email, password})
-    console.log(data)
-    if (data === "Login Successful") {
+    //const data = await loginUser({email, password})
+    await setTimeout(()=> {}, 1000)
+    try {
+        const msg = await loginUser({email, password})
+        
         localStorage.setItem("loggedin", true)
-        throw redirect("/user-profile")
+        return redirect("/user-profile")
+    } catch (error) {
+        return error.message
     }
-    return null
+
 }
 
 export default function Login() {
     const message = useLoaderData()
-    const [userDetails, setUserDetails] = React.useState(
-        {
-            email:"",
-            password:"",
-        }
-    )
+    const error = useActionData()
+    const navigation = useNavigation()
 
-    const [status, setStatus] = React.useState("idle")
-    const [error, setError] = React.useState(null)
-
-    
     return (
         <div className="form-container">
             <h1>Sign in to your account</h1>
@@ -52,7 +54,7 @@ export default function Login() {
                     name="password"
                     id="password"
                 />
-                <button className="signup-button" disabled={status === "submitting" ? true : false}>{status === "submitting" ? "Logging in..." : "Login" }</button>
+                <button className="signup-button" disabled={navigation.state === "submitting"}>{navigation.state === "submitting" ? "Logging in..." : "Login" }</button>
             </Form>
         </div>
     )

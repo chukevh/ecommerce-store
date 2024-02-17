@@ -259,6 +259,11 @@ a.nav-text  {
     background-color: grey;
 }
 
+.signup-button:disabled {
+    background-color: grey;
+    cursor: not-allowed;
+}
+
 .signup-sub-container {
     display: flex;
     align-items: center;

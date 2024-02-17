@@ -70,7 +70,7 @@ app.post("/api/login", async(req,res) => {
                 console.log({ message: "Login failed, password incorrect"})
             }
         } else {
-            res.status(401).json("Email not found")
+            res.status(401).json({ message: "Email not found" })
             console.log("Email not found")
         }
     } catch (error) {
