@@ -98,6 +98,7 @@ a.nav-text  {
 .hero-montage {
     padding: 10px 10px 3% 10px;
     width: 70%;
+    max-width: 1050px;
     align-self: center;
 }
 

@@ -6,27 +6,21 @@ export function loader({ request }) {
     return new URL(request.url).searchParams.get("message")
 }
 
-function wait(seconds) {
-    return new Promise(resolve => {
-       setTimeout(resolve, seconds * 1000);
-    });
- } 
-
 export async function action({ request }) {
     const formData = await request.formData()
     const email = formData.get("email")
     const password = formData.get("password")
-    //const data = await loginUser({email, password})
-    await setTimeout(()=> {}, 1000)
+    
+    
     try {
-        const msg = await loginUser({email, password})
-        
+        await loginUser({email, password})
         localStorage.setItem("loggedin", true)
-        return redirect("/user-profile")
+        const pathname = new URL(request.url).searchParams.get("redirectTo") || "/user-profile"
+        console.log(pathname)
+        return redirect(pathname)
     } catch (error) {
         return error.message
     }
-
 }
 
 export default function Login() {

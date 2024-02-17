@@ -1,4 +1,4 @@
-import { NavLink, Outlet, redirect, useNavigate } from "react-router-dom"
+import { NavLink, Outlet, useNavigate } from "react-router-dom"
 
 export default function UserProfileLayout() {
     const navigate = useNavigate()

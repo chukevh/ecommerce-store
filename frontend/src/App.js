@@ -42,21 +42,17 @@ const router = createBrowserRouter(createRoutesFromElements(
       <Route 
         index 
         element={<UserProfileDetails />}
-        loader={async () => await requireAuth()}
-      />
-      <Route 
-        path="details" 
-        element={<UserProfileDetails />}
-        loader={async () => await requireAuth()}
+        loader={async ({ request }) => await requireAuth({ request })}
       />
       <Route 
         path="orders" 
-        element={<UserOrderDetails />}/>
-        loader={async () => await requireAuth()}
+        element={<UserOrderDetails />}
+        loader={async ({ request }) => await requireAuth({ request })}
+      />
       <Route 
         path="logout" 
         element={<UserLogout />}
-        loader={async () => await requireAuth()}
+        loader={async ({ request }) => await requireAuth({ request })}
       />
     </Route>
     <Route path="*" element={<PageNotFound />}/>

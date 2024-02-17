@@ -1,11 +1,11 @@
 export async function getShirtData() {
     const res = await fetch("/api/t-shirts")
     if (!res.ok) {
-        throw new Error({
+        throw {
             message: "Failed to fetch shirt data",
             statusText: res.statusText,
             status: res.status
-        })
+        }
     }
     const data = await res.json()
     return data
@@ -14,11 +14,11 @@ export async function getShirtData() {
 export async function getSingleShirtData(paramsId) {
     const res = await fetch(`/api/t-shirts/${paramsId}`)
     if (!res.ok) {
-        throw new Error ({
+        throw {
             message: "Failed to fetch shirt data",
             statusText: res.statusText,
             status: res.status
-        })
+        }
     }
     const data = await res.json()
     return data
@@ -40,6 +40,6 @@ export async function loginUser(creds) {
             status: res.status
         }
     }
-    setTimeout(() => { return data}, 2000)
+    
     return data
 }
