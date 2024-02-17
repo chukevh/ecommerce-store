@@ -11,7 +11,7 @@ export default function BottomDetails() {
         e.target.style.background=""
     }
     return (
-        <section className="subbox">
+        <div className="subbox">
             <form className="form" onSubmit={handleSubmit}>
                 <label 
                     className="subbox-label"
@@ -35,6 +35,6 @@ export default function BottomDetails() {
                     Subscribe
                 </button>
             </form>
-        </section>
+        </div>
     )
 }

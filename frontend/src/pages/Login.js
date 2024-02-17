@@ -25,14 +25,14 @@ export async function action({ request }) {
 
 export default function Login() {
     const message = useLoaderData()
-    const error = useActionData()
+    const errorMessage = useActionData()
     const navigation = useNavigation()
 
     return (
         <div className="form-container">
             <h1>Sign in to your account</h1>
             { message && <h3 className="login-text">{message}</h3>}
-            { error && <h3 className="login-text">{error}</h3>}
+            { errorMessage && <h3 className="login-text">{errorMessage}</h3>}
             <Form method="post" className="form-signup" replace>
                 <input
                     className="signup-input"

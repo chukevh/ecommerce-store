@@ -4,12 +4,12 @@ import Footer from "./Footer"
 
 export default function Layout() {
     return (
-        <>
+        <div className="layout">
             <Header />
             <div className="app">
                 <Outlet />
             </div>
             <Footer />
-        </>
+        </div>
     )
 }
