@@ -1,85 +1,96 @@
 import React from "react"
+import { Form, useActionData } from "react-router-dom"
+import { signupUser } from "../api"
+
+export async function action({ request }) {
+    const formData = await request.formData()
+    const firstName = formData.get("firstName")
+    const lastName = formData.get("firstName")
+    const email = formData.get("email")
+    const password = formData.get("password")
+    const passwordConfirm = formData.get("passwordConfirm")
+    const subscribed = formData.get("subscribed") === "on" ? true : false
+    const userDetails = {
+        firstName,
+        lastName,
+        email,
+        password,
+        subscribed
+    }
+
+    try {
+        
+        if (password === passwordConfirm) {
+            await signupUser(userDetails)
+        } else {
+            throw new Error("Passwords do not match")
+        }
+    } catch (error) {
+        return error.message
+    }
+    
+    return null
+}
 
 export default function SignUp() {
-    const [userDetails, setUserDetails] = React.useState(
-        {
-            email:"",
-            password:"",
-            passwordConfirm:"",
-            subscribe: false,
-        }
-    )
-    
-    function handleChange(event) {
-        const {name, value, type, checked} = event.target
-        setUserDetails(prevState => {
-            return {
-                ...prevState,
-                [name] : type === "checkbox" ? checked : value
-            }
-        })
-        //console.log(userDetails.email)
-    }
+    const errorMessage = useActionData()
+    console.log(errorMessage)
 
-    function handleSubmit(event) {
-        event.preventDefault()
-        if (userDetails.password === userDetails.passwordConfirm) {
-            console.log("Sucessfully signed up")
-        } else {
-            console.log("Passwords do not match")
-        }
-
-        if (userDetails.subscribe === true) {
-            console.log("Thanks for subscribing to our newsletter!")
-            return
-        }
-        console.log(userDetails)
-        // API send
-    }
-    
     return (
         <div className="form-container">
             <h1>Sign up for an account</h1>
-            <form className="form-signup" onSubmit={handleSubmit}>
+            {errorMessage && <h3 className="login-text">{errorMessage}</h3>}
+            <Form method="post" className="form-signup">
+                <input
+                    className="signup-input"
+                    type="text"
+                    placeholder="First Name"
+                    name="firstName"
+                    id="firstName"
+                    required
+                />
+                <input
+                    className="signup-input"
+                    type="text"
+                    placeholder="Last Name"
+                    name="lastName"
+                    id="lastName"
+                    required
+                />
                 <input
                     className="signup-input"
                     type="email"
                     placeholder="Email"
-                    onChange={handleChange}
                     name="email"
                     id="email"
-                    value={userDetails.email}
+                    required
                 />
                 <input
                     className="signup-input"
                     type="text"
                     placeholder="Password"
-                    onChange={handleChange}
                     name="password"
                     id="password"
-                    value={userDetails.password}
+                    required
                 />
                 <input
                     className="signup-input"
                     type="text"
                     placeholder="Confirm Password"
-                    onChange={handleChange}
                     name="passwordConfirm"
                     id="passwordConfirm"
-                    value={userDetails.passwordConfirm}
+                    required
                 />
                 <div className="signup-sub-container">
                     <input 
                         type="checkbox"
-                        name="subscribe"
-                        id="subscribe"
-                        checked={userDetails.subscribe}
-                        onChange={handleChange}
+                        name="subscribed"
+                        id="subscribed"
                     />
-                    <label htmlFor="subscribe">Subscribe to the newsletter</label>
+                    <label htmlFor="subscribed">Subscribe to the newsletter</label>
                 </div>
                 <button className="signup-button">Sign Up</button>
-            </form>
+            </Form>
         </div>
     )
 }

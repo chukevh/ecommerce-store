@@ -46,10 +46,11 @@ app.get("/api/t-shirts/:id", async(req,res) => {
 });
 
 // Sign up user to db
-app.post("/api/sign-up", async(req,res) => {
+app.post("/api/signup", async(req,res) => {
     try {
         const user = await User.create(req.body);
-        res.status(200).json(user);
+        res.status(200).json({user, message: "User signed up successfully"});
+        console.log("User signed up successfully")
     } catch (error) {
         console.log(error.message);
         res.status(500).json({message: error.message});
@@ -79,6 +80,18 @@ app.post("/api/login", async(req,res) => {
     }
 })
 
+// // Drop an index in database
+// app.post("/api/user/drop", async(req,res) => {
+//     try {
+//         //const user = await Shirt.collection.getIndexes()
+//         const user = await User.collection.createIndex("email")
+//         res.status(200).json(user)
+//     } catch (error) {
+//         console.log(error.message);
+//         res.status(500).json({message: error.message});
+//     }
+// })
+
 /* ADMIN FUNCTIONS */
 // // Update DB with a new shirt
 // app.post("/api/shirt", async(req,res) => {
@@ -104,7 +117,11 @@ app.post("/api/login", async(req,res) => {
 //         res.status(500).json({message: error.message});
 //     }
 // })
-
+let changeArray = [
+    { email: "ericascoolemail@gmail.com" },
+    { email: "ericaisstillcool@gmail.com" },
+    { email: "chu.kevin.h@gmail.com" }
+]
 // // Update all shirts data
 // app.post("/api/t-shirts/update-manual", async(req,res) => {
 //     try {

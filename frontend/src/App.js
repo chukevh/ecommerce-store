@@ -1,6 +1,6 @@
 //import SubscribeBox from "./components/SubscribeBox"
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from "react-router-dom"
-import SignUp from "./pages/SignUp.js"
+import SignUp, { action as signupAction} from "./pages/SignUp.js"
 import Home, { loader as homeShirtLoader} from "./pages/Home/Home.js"
 import Shirts, { loader as shirtsLoader } from "./pages/Shirts/Shirts.js"
 import ShirtDetail, { loader as singleShirtLoader} from "./pages/ShirtDetails/ShirtDetail.js"
@@ -30,7 +30,11 @@ const router = createBrowserRouter(createRoutesFromElements(
       element={<ShirtDetail />}
       loader={singleShirtLoader}
     />
-    <Route path="sign-up" element={<SignUp />}/>
+    <Route 
+      path="sign-up" 
+      element={<SignUp />} 
+      action={signupAction}
+    />
     <Route 
       path="login" 
       element={<Login />} 
