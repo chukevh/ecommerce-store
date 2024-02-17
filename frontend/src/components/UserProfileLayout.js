@@ -1,10 +1,16 @@
-import { NavLink, Outlet } from "react-router-dom"
+import { NavLink, Outlet, redirect } from "react-router-dom"
 
 export default function UserProfileLayout() {
     const activeStyle = {
         fontWeight: "bold",
         textDecoration: "underline"
     }
+
+    function handleLogout() {
+        localStorage.setItem("loggedin", false)
+        console.log("Login reset")
+    }
+
     return (
         <>
             <nav className="user-profile-nav">
@@ -21,12 +27,7 @@ export default function UserProfileLayout() {
                 >
                     Orders
                 </NavLink>
-                <NavLink 
-                    to="logout"
-                    style={({ isActive }) => isActive ? activeStyle : null}
-                >
-                    Logout
-                </NavLink>
+                <button onClick={handleLogout}>Log out</button>
             </nav>
             <Outlet />
         </>

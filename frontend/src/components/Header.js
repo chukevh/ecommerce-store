@@ -30,12 +30,15 @@ export default function Header() {
                 >
                     Sign-Up
                 </NavLink>
-                <NavLink 
-                    to="login"
-                    style={({ isActive }) => isActive ? activeStyle : null }
-                >
-                    Login
-                </NavLink>
+                {
+                    localStorage.getItem("loggedin") === "false" && 
+                        <NavLink 
+                            to="login"
+                            style={({ isActive }) => isActive ? activeStyle : null }
+                        >
+                            Login
+                        </NavLink>
+                }
                 <Link 
                     to="search"         
                     className="nav-links-img-container"
