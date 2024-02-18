@@ -29,16 +29,20 @@ This will also load the website and once the backend server has established a co
 ## Features in progress
 
 **Website**
+
 Homepage
 - Search function
 - Check errorElement on each page
+  
 Shirt detail page
 - Implement product descriptions
 - Implement reviews
 
 **Server**
+
 Passwords
 - Hash user passwords using bcrypt
+  
 Payment
 - Integrate payment
 
