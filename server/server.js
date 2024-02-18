@@ -117,11 +117,7 @@ app.post("/api/login", async(req,res) => {
 //         res.status(500).json({message: error.message});
 //     }
 // })
-let changeArray = [
-    { email: "ericascoolemail@gmail.com" },
-    { email: "ericaisstillcool@gmail.com" },
-    { email: "chu.kevin.h@gmail.com" }
-]
+
 // // Update all shirts data
 // app.post("/api/t-shirts/update-manual", async(req,res) => {
 //     try {

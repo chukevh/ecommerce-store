@@ -1,5 +1,5 @@
 import React from "react"
-import { useLoaderData, Form, redirect, useActionData, useNavigation } from "react-router-dom"
+import { useLoaderData, Form, redirect, useActionData, useNavigation, Link } from "react-router-dom"
 import { loginUser } from "../api"
 
 export function loader({ request }) {
@@ -33,7 +33,7 @@ export default function Login() {
             <h1>Sign in to your account</h1>
             { message && <h3 className="login-text">{message}</h3>}
             { errorMessage && <h3 className="login-text">{errorMessage}</h3>}
-            <Form method="post" className="form-signup" replace>
+            <Form method="post" className="form-login" replace>
                 <input
                     className="signup-input"
                     type="email"
@@ -50,6 +50,7 @@ export default function Login() {
                 />
                 <button className="signup-button" disabled={navigation.state === "submitting"}>{navigation.state === "submitting" ? "Logging in..." : "Login" }</button>
             </Form>
+            <Link to="/sign-up" className="form-bottom-text">Don't have an account?</Link>
         </div>
     )
 }

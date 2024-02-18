@@ -1,5 +1,5 @@
 import React from "react"
-import { Form, useActionData } from "react-router-dom"
+import { Form, Link, useActionData } from "react-router-dom"
 import { signupUser } from "../api"
 
 export async function action({ request }) {
@@ -90,6 +90,7 @@ export default function SignUp() {
                 </div>
                 <button className="signup-button">Sign Up</button>
             </Form>
+            <Link to="/login" className="form-bottom-text">Already have an account?</Link>
         </div>
     )
 }
