@@ -34,7 +34,7 @@ export async function action({ request }) {
 
 export default function SignUp() {
     const errorMessage = useActionData()
-
+    console.log(errorMessage)
     return (
         <div className="form-container">
             <h1>Sign up for an account</h1>

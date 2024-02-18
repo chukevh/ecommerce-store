@@ -37,7 +37,7 @@ export default function Shirts() {
 
     return (
         <div className="shirt-main-content">
-            <h1 >Explore our Shirt Collection</h1>
+            <h1>Explore our Shirt Collection</h1>
             <div className="shirt-filters-container">
                 <button 
                     onClick={() => handleSearchParams("genre", "games")} 
