@@ -28,10 +28,20 @@ section {
 }
 
 h1 {
+    font-weight: 700;
+    font-size: 30px;
     margin-top: 0;
+    margin-bottom: 20px;
 }
 h2 {
     margin-top: 0;
+    font-weight: 700;
+}
+h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 22px;
+    font-weight: 700;
 }
 
 
@@ -142,6 +152,8 @@ a.nav-text  {
     flex-direction: column;
     flex: 0 0 auto;
     position: relative;
+    border: none;
+    /* align-items: center; */
 }
 
 .card:hover .card-image-container {
