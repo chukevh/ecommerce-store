@@ -50,6 +50,8 @@ export default function Header() {
                 >
                     <img src={ProfileImg} className="nav-links-img" alt=""/>
                 </Link> 
+                {/* <button className="nav-links-img-container" to="/sign-up"><img src={Cart} className="nav-links-img" alt=""/></button> */}
+                    
                 <Link 
                     to="cart"         
                     className="nav-links-img-container"

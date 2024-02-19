@@ -1,8 +1,9 @@
 import React from "react"
 import { Link, useLocation, useLoaderData } from "react-router-dom"
 import ShirtDetailsDescription from "./ShirtDetailsDescription"
-import ShirtDataContext from "../../components/ShirtDataContext"
+import ShirtDataContext from "../../context/ShirtDataContext"
 import { getSingleShirtData } from "../../api"
+import { CartContext } from "../../context/CartContext"
 //import star from "../images/star.png"
 
 export function loader({ params }) {
@@ -12,8 +13,15 @@ export function loader({ params }) {
 export default function ShirtDetail() {
     const [shirtCount, setShirtCount] = React.useState(0)
     const location = useLocation()
-    
     const shirtData = useLoaderData()[0]
+    const cartItems = React.useContext(CartContext)
+
+    console.log(cartItems.getItemQuantity(1))
+
+    function AddToCart(id, shirtCount) {
+        // add to cart
+    }
+    
 
     function handleClickIncrement() {
         setShirtCount(prevState => prevState + 1)
@@ -27,10 +35,6 @@ export default function ShirtDetail() {
                 return 0
             }
         })
-    }
-
-    function handleAddToCart() {
-        //API to add to cart
     }
 
     const search = `?${location.state?.search}` || ""
@@ -72,7 +76,7 @@ export default function ShirtDetail() {
                                 <button className="shirt-quantity-button" onClick={handleClickIncrement}>+</button>
                             </div>
                             <br/>
-                            <button className="shirt-cart-button" onClick={handleAddToCart}>Add to Cart</button>
+                            <button className="shirt-cart-button" onClick={() => AddToCart(shirtData.id, shirtCount)}>Add to Cart</button>
                             <ShirtDataContext.Provider value={shirtData}>
                                 <ShirtDetailsDescription />
                             </ShirtDataContext.Provider>

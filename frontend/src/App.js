@@ -13,6 +13,8 @@ import PageNotFound from "./pages/PageNotFound.js"
 import Error from "./components/Error.js"
 import { requireAuth } from "./utils.js"
 import Login, { loader as loginLoader, action as loginAction } from "./pages/Login.js"
+import Cart from "./pages/Cart/Cart.js"
+import CartContext, { CartProvider } from "./context/CartContext.js"
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<Layout />} errorElement={<Error />}>
@@ -41,6 +43,10 @@ const router = createBrowserRouter(createRoutesFromElements(
       loader={loginLoader} 
       action={loginAction}
     />
+    <Route 
+      path="/cart" 
+      element={<Cart />}
+    />
     
     <Route path="user-profile" element={<UserProfileLayout />}>
       <Route 
@@ -65,7 +71,9 @@ const router = createBrowserRouter(createRoutesFromElements(
 
 export default function App() {
   return (
+    <CartProvider>
       <RouterProvider router={router}/>
+    </CartProvider>
   )
 }
 
