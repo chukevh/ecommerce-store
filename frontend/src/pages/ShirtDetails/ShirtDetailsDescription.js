@@ -1,8 +1,9 @@
 import React from "react"
-import ShirtDataContext from "../../context/ShirtDataContext" 
+import { ShirtDataContext } from "../../context/ShirtDataContext" 
 
 export default function ShirtDetailsDescription() {
     const shirtData = React.useContext(ShirtDataContext)
+    console.log(shirtData)
     const [descriptionState, setDescriptionState] = React.useState(
         {
             productOn: true,

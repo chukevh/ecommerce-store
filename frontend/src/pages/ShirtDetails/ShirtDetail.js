@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, useLocation, useLoaderData } from "react-router-dom"
 import ShirtDetailsDescription from "./ShirtDetailsDescription"
-import ShirtDataContext from "../../context/ShirtDataContext"
+import { ShirtDataContext, ShirtDataProvider } from "../../context/ShirtDataContext"
 import { getSingleShirtData } from "../../api"
 import { CartContext } from "../../context/CartContext"
 //import star from "../images/star.png"
@@ -14,11 +14,11 @@ export default function ShirtDetail() {
     const [shirtQuantity, setShirtQuantity] = React.useState(0)
     const location = useLocation()
     const shirtData = useLoaderData()[0]
-    const {items, addToCart} = React.useContext(CartContext)
+    const { addToCart } = React.useContext(CartContext)
     
-    React.useEffect(() => {
-        console.log(items)
-    },[items])
+    // React.useEffect(() => {
+    //     console.log(items)
+    // },[items])
 
 
     function handleClickIncrement() {
@@ -75,9 +75,9 @@ export default function ShirtDetail() {
                             </div>
                             <br/>
                             <button className="shirt-cart-button" onClick={() => addToCart(shirtData.id, shirtQuantity)}>Add to Cart</button>
-                            <ShirtDataContext.Provider value={shirtData}>
+                            <ShirtDataProvider>
                                 <ShirtDetailsDescription />
-                            </ShirtDataContext.Provider>
+                            </ShirtDataProvider>
                         </div>
                     </div>
                 </div>

@@ -28,6 +28,7 @@ app.get("/api/t-shirts", async(req,res) => {
     try {
         const shirts = await Shirt.find({});
         res.status(200).json(shirts)
+        console.log("Shirt data fetched")
     } catch (error) {
         res.status(500).json({message: error.message})
     }

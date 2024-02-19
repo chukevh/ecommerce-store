@@ -17,6 +17,7 @@ import Cart from "./pages/Cart/Cart.js"
 import { CartProvider } from "./context/CartContext.js"
 
 
+
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<Layout />} errorElement={<Error />}>
     <Route 
@@ -45,7 +46,7 @@ const router = createBrowserRouter(createRoutesFromElements(
       action={loginAction}
     />
     <Route 
-      path="/cart" 
+      path="cart" 
       element={<Cart />}
     />
     
