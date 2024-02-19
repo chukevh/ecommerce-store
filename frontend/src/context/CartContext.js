@@ -1,5 +1,6 @@
 import React from "react"
 import ShoppingCart from "../pages/Cart/ShoppingCart"
+import { ShirtDataProvider } from "./ShirtDataContext"
 
 export const CartContext = React.createContext({
     items: [],
@@ -48,7 +49,7 @@ export function CartProvider({ children }) {
         }) 
     }
 
-    const contextValue= {
+    const contextValue = {
         items: cartItems,
         getItemQuantity,
         addToCart,
@@ -62,7 +63,9 @@ export function CartProvider({ children }) {
     return (
         <CartContext.Provider value={contextValue}>
             { children }
-            <ShoppingCart isOpen={isOpen}/>
+            <ShirtDataProvider>
+                <ShoppingCart isOpen={isOpen}/>
+            </ShirtDataProvider>
         </CartContext.Provider>
     )
 }

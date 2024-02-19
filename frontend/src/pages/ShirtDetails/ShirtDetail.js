@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, useLocation, useLoaderData } from "react-router-dom"
 import ShirtDetailsDescription from "./ShirtDetailsDescription"
-import { ShirtDataContext, ShirtDataProvider } from "../../context/ShirtDataContext"
+import { ShirtDataProvider } from "../../context/ShirtDataContext"
 import { getSingleShirtData } from "../../api"
 import { CartContext } from "../../context/CartContext"
 //import star from "../images/star.png"

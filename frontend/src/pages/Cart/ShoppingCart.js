@@ -2,11 +2,16 @@ import React from "react";
 import { Offcanvas, Stack } from "react-bootstrap";
 import { CartContext } from "../../context/CartContext";
 import CartItemCard from "./CartItemCard";
+import { getShirtData } from "../../api";
 
 
 export default function ShoppingCart(props) {
     const { toggleCart, items } = React.useContext(CartContext)
 
+    React.useEffect(() => {
+        const data = getShirtData()
+        console.log(data)
+    }, [])
 
     const cartElements = items.map((item) => (
             <CartItemCard

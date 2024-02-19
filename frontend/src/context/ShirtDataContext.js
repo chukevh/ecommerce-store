@@ -4,17 +4,18 @@ import { getShirtData } from "../api"
 export const ShirtDataContext = React.createContext()
 
 export function ShirtDataProvider({ children }) {
-    const contextValue = null
+    const [shirtsData, setShirtsData] = React.useState()
 
-    React.useEffect(() => {
-        contextValue = getShirtData()
-        console.log(contextValue)
+    React.useEffect(() => async() => {
+        await fetch("/api/t-shirts")
+            .then(res => res.json())
+            .then(data => setShirtsData(data))
     }, [])
-    
+
 
     return (
-        <ShirtDataProvider value={contextValue}>
+        <ShirtDataContext.Provider value={shirtsData}>
             { children }
-        </ShirtDataProvider>
+        </ShirtDataContext.Provider>
     )
 }
