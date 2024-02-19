@@ -11,24 +11,22 @@ export function loader({ params }) {
 }
 
 export default function ShirtDetail() {
-    const [shirtCount, setShirtCount] = React.useState(0)
+    const [shirtQuantity, setShirtQuantity] = React.useState(0)
     const location = useLocation()
     const shirtData = useLoaderData()[0]
-    const cartItems = React.useContext(CartContext)
-
-    console.log(cartItems.getItemQuantity(1))
-
-    function AddToCart(id, shirtCount) {
-        // add to cart
-    }
+    const {items, addToCart} = React.useContext(CartContext)
     
+    React.useEffect(() => {
+        console.log(items)
+    },[items])
+
 
     function handleClickIncrement() {
-        setShirtCount(prevState => prevState + 1)
+        setShirtQuantity(prevState => prevState + 1)
     }
 
     function handleClickDecrement() {
-        setShirtCount(prevState => {
+        setShirtQuantity(prevState => {
             if (prevState > 0) {
                 return (prevState - 1)
             } else {
@@ -72,11 +70,11 @@ export default function ShirtDetail() {
                             <br/>
                             <div className="shirt-quanitity-container">
                                 <button className="shirt-quantity-button" onClick={handleClickDecrement}>-</button>
-                                <span className="shirt-quantity-count">{shirtCount}</span>
+                                <span className="shirt-quantity-count">{shirtQuantity}</span>
                                 <button className="shirt-quantity-button" onClick={handleClickIncrement}>+</button>
                             </div>
                             <br/>
-                            <button className="shirt-cart-button" onClick={() => AddToCart(shirtData.id, shirtCount)}>Add to Cart</button>
+                            <button className="shirt-cart-button" onClick={() => addToCart(shirtData.id, shirtQuantity)}>Add to Cart</button>
                             <ShirtDataContext.Provider value={shirtData}>
                                 <ShirtDetailsDescription />
                             </ShirtDataContext.Provider>

@@ -4,12 +4,16 @@ import { Link, NavLink } from "react-router-dom"
 import ProfileImg from "../images/profile.png"
 import Cart from "../images/cart.jpg"
 import MagnifyingGlass from "../images/magnifying-glass.png"
+import { Navbar } from "react-bootstrap"
+import { CartContext } from "../context/CartContext"
 
 export default function Header() {
     const activeStyle = {
         fontWeight: "bold",
         textDecoration: "underline"
     }
+
+    const { toggleCart } = React.useContext(CartContext)
 
     return (
         <nav className="nav-items">
@@ -50,14 +54,16 @@ export default function Header() {
                 >
                     <img src={ProfileImg} className="nav-links-img" alt=""/>
                 </Link> 
-                {/* <button className="nav-links-img-container" to="/sign-up"><img src={Cart} className="nav-links-img" alt=""/></button> */}
+                <button className="nav-links-cart-button" onClick={toggleCart}>
+                    <img src={Cart} className="nav-links-img" alt=""/>
+                </button>
                     
-                <Link 
+                {/* <Link 
                     to="cart"         
                     className="nav-links-img-container"
                 >
                     <img src={Cart} className="nav-links-img" alt=""/>
-                </Link> 
+                </Link>  */}
             </div> 
         </nav>
     )

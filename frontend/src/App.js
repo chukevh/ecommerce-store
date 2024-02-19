@@ -14,7 +14,9 @@ import Error from "./components/Error.js"
 import { requireAuth } from "./utils.js"
 import Login, { loader as loginLoader, action as loginAction } from "./pages/Login.js"
 import Cart from "./pages/Cart/Cart.js"
-import CartContext, { CartProvider } from "./context/CartContext.js"
+import { CartProvider } from "./context/CartContext.js"
+import "bootstrap/dist/css/bootstrap.min.css"
+import "./style.css"
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<Layout />} errorElement={<Error />}>
