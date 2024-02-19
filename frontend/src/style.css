@@ -24,6 +24,7 @@ section {
 /* APP */
 .app {
     min-height: calc(95vh - 128px);
+    
 }
 
 h1 {
