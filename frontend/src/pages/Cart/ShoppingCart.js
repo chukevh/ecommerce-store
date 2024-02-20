@@ -27,20 +27,40 @@ export default function ShoppingCart(props) {
     )
     : <p>Your cart is empty!</p>
 
+    function cartCheckout() {
+        // Send to Stripe
+    }
+
     return (
         <Offcanvas show={props.isOpen} onHide={toggleCart} placement="end">
             <Offcanvas.Header>
                 <Offcanvas.Title >
                     <div className="cart-header-container">
                         <h1 className="cart-text">Cart</h1>
-                        <CloseButton onClick={toggleCart}className="close-button"/>
+                        <CloseButton 
+                            onClick={toggleCart}
+                            className="close-button"
+                        />
                     </div>
                 </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-                <Stack gap={3}>
-                    {cartElements}
-                </Stack>
+                <div className="cart-container">
+                    <div className="cart-items-container">
+                        <Stack 
+                            gap={3} as="div" 
+                            className="cart-item-cards-container"
+                        >
+                            {cartElements}
+                        </Stack>
+                    </div>
+                    <button 
+                            className="cart-checkout-button" 
+                            onClick={cartCheckout}
+                        >
+                            Checkout
+                    </button>
+                </div>
             </Offcanvas.Body>
         </Offcanvas>
     )

@@ -520,7 +520,14 @@ a.nav-text  {
     font-size: 15px;
     width: 100%;
     padding: 12px 0px;
+    transition: all .3s ease;
 }
+
+.shirt-cart-button:hover {
+    background-color: black;
+    color: white;
+}
+
 
 /* SHIRT PAGES - SHIRT DESCRIPTION */
 .shirt-details-description-container {
@@ -565,6 +572,18 @@ a.nav-text  {
     background-color: black;
 } */
 
+.cart-container {
+    height: 100%;
+    position: relative;
+}
+
+.cart-items-container {
+    display: flex;
+    height: 92%;
+    overflow-y: auto;
+}
+
+
 .cart-header-container {
     display: flex;
     flex-direction: row;
@@ -588,6 +607,10 @@ a.nav-text  {
 .cart-item-img {
     width: 125px;
     object-fit: cover;
+}
+
+.cart-item-cards-container {
+    height: 50%;
 }
 
 .cart-item-description-container {
@@ -632,15 +655,28 @@ a.nav-text  {
     border: 0px;
 }
 
-.cart-item-remove-button {
+/* .cart-item-remove-button {
     background-color: white;
     border: none;
     color: grey;
     border-bottom: 1px 
+} */
+
+.cart-checkout-button {
+    border: 1px solid black;
+    cursor: pointer;
+    background-color: white;
+    font-size: 15px;
+    width: 100%;
+    padding: 12px 0px;
+    position: absolute;
+    bottom: 0%;
+    transition: all .3s ease;
 }
 
-.cart-item-remove-button:hover {
-    
+.cart-checkout-button:hover {
+    background-color: black;
+    color: white;
 }
 
 /* Page Not Found */
