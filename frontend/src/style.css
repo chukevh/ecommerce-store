@@ -547,6 +547,31 @@ a.nav-text  {
     font-weight: 600;
 }
 
+/* Shopping Cart */
+/* .cart-item-card-container {
+    background-color: black;
+} */
+.cart-text-container {
+
+    
+}
+
+.cart-text {
+    border-bottom: 2px solid grey;
+    width: 530%;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.cart-item-img {
+    width: 125px;
+    object-fit: cover;
+    
+}
+
+
+
+
 /* Page Not Found */
 .page-not-found-container {
     padding: 3% 10%;

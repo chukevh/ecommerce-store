@@ -2,32 +2,37 @@ import React from "react";
 import { Offcanvas, Stack } from "react-bootstrap";
 import { CartContext } from "../../context/CartContext";
 import CartItemCard from "./CartItemCard";
-import { getShirtData } from "../../api";
 
 
 export default function ShoppingCart(props) {
     const { toggleCart, items } = React.useContext(CartContext)
-
+    const [allShirtsData, setAllShirtsData] = React.useState()
+    
     React.useEffect(() => {
-        const data = getShirtData()
-        console.log(data)
+        fetch("/api/t-shirts")
+            .then(res => res.json())
+            .then(data => setAllShirtsData(data))
     }, [])
-
-    const cartElements = items.map((item) => (
+    
+    const cartElements = items.length > 0 && allShirtsData 
+    ? items.map((item) => {
+        const shirtData = allShirtsData.find((shirt) => shirt.id === item.id)
+        return (
             <CartItemCard
                 key={item.id}
-                id={item.id}
+                shirtData={shirtData}
                 quantity={item.quantity}
             />
-        )
+        )}
     )
-
-
+    : <p>Your cart is empty!</p>
 
     return (
         <Offcanvas show={props.isOpen} onHide={toggleCart} placement="end">
             <Offcanvas.Header closeButton>
-                <Offcanvas.Title>Cart</Offcanvas.Title>
+                <Offcanvas.Title>
+                    <h1 className="cart-text">Cart</h1>
+                </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
                 <Stack gap={3}>
