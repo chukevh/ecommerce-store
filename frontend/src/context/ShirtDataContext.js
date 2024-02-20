@@ -1,5 +1,4 @@
 import React from "react"
-import { getShirtData } from "../api"
 
 export const ShirtDataContext = React.createContext([])
 

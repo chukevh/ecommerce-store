@@ -1,4 +1,3 @@
-import { ShirtDataContext } from "../../context/ShirtDataContext.js"
 import Card from "./Card.js"
 import { useLoaderData } from "react-router-dom"
 

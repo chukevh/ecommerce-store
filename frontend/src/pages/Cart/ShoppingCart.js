@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, CloseButton, Offcanvas, Stack } from "react-bootstrap";
+import { CloseButton, Offcanvas, Stack } from "react-bootstrap";
 import { CartContext } from "../../context/CartContext";
 import CartItemCard from "./CartItemCard";
 

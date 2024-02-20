@@ -4,10 +4,16 @@ import { Link, NavLink } from "react-router-dom"
 import ProfileImg from "../images/profile.png"
 import Cart from "../images/cart.jpg"
 import MagnifyingGlass from "../images/magnifying-glass.png"
-import { Navbar } from "react-bootstrap"
 import { CartContext } from "../context/CartContext"
 
 export default function Header() {
+    const { items, getCartQuantity } = React.useContext(CartContext)
+    const [cartQuantity, setCartQuantity] = React.useState(0)
+
+    React.useEffect(() => {
+        setCartQuantity(getCartQuantity())
+    }, [items])
+
     const activeStyle = {
         fontWeight: "bold",
         textDecoration: "underline"
@@ -50,12 +56,13 @@ export default function Header() {
                     <img src={MagnifyingGlass} className="nav-links-img" alt=""/>
                 </Link> 
                 <Link 
-                    to="user-profile"         className="nav-links-img-container"
+                    to="user-profile" className="nav-links-img-container"
                 >
                     <img src={ProfileImg} className="nav-links-img" alt=""/>
                 </Link> 
                 <button className="nav-links-cart-button" onClick={toggleCart}>
-                    <img src={Cart} className="nav-links-img" alt=""/>
+                    <img src={Cart} className="nav-links-img cart" alt=""/>
+                    {cartQuantity > 0 && <div className="rounded-circle bg-danger"/>}
                 </button>
                     
                 {/* <Link 

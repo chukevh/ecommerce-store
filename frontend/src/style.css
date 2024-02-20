@@ -97,7 +97,7 @@ a.nav-text  {
     padding-left: 5px;
 }
 
-.nav-links-img-container > img:hover, .nav-links-cart-button > img:hover {
+.nav-links-img-container > img:hover, .nav-links-cart-button:hover {
     transform: scale(1.2);
 }
 
@@ -110,7 +110,20 @@ a.nav-text  {
     padding-left: 5px;
     background-color: white;
     border: none;
+    position: relative;
 }
+
+.rounded-circle {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    translate: 0% 30%;
+    /* display: inline-block; */
+}
+
 
 
 /* MAIN */
@@ -593,10 +606,6 @@ a.nav-text  {
 
 .cart-item-description-text.title {
     font-weight: 500;
-}
-
-.cart-item-description-text.subtitle {
-    font-weight: 400;
 }
 
 .cart-item-description-buttons-container {

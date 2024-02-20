@@ -4,12 +4,13 @@ import { ShirtDataProvider } from "./ShirtDataContext"
 
 export const CartContext = React.createContext({
     items: [],
+    toggleCart: () => {},
     getItemQuantity: () => {},
+    getCartQuantity: () => {},
     addQuantityToCart: () => {},
     addToCart: () => {},
     decreaseFromCart: () => {},
-    deleteFromCart: () => {},
-    toggleCart: () => {}
+    deleteFromCart: () => {},   
 })
 
 export function CartProvider({ children }) {
@@ -27,6 +28,10 @@ export function CartProvider({ children }) {
 
     function getItemQuantity(id) {
         return cartItems.find((item) => item.id === id)?.quantity || 0
+    }
+
+    function getCartQuantity() {
+        return cartItems.length
     }
 
     function addQuantityToCart(id, quantity) {
@@ -91,13 +96,13 @@ export function CartProvider({ children }) {
 
     const contextValue = {
         items: cartItems,
+        toggleCart,
         getItemQuantity,
+        getCartQuantity,
         addQuantityToCart,
         addToCart,
         decreaseFromCart,
-        deleteFromCart,
-        // getCartQuantity
-        toggleCart
+        deleteFromCart,  
     }
 
     return (
