@@ -1,6 +1,7 @@
 import React from "react"
 import ShoppingCart from "../pages/Cart/ShoppingCart"
 import { ShirtDataProvider } from "./ShirtDataContext"
+import { useLocalStorage } from "../hooks/useLocalStorage"
 
 export const CartContext = React.createContext({
     items: [],
@@ -14,8 +15,7 @@ export const CartContext = React.createContext({
 })
 
 export function CartProvider({ children }) {
-    const [cartItems, setCartItems] = React.useState([])
-
+    const [cartItems, setCartItems] = useLocalStorage()//React.useState([])
     const [isOpen, setIsOpen] = React.useState(false)
 
     function toggleCart() {
