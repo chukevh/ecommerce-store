@@ -583,15 +583,14 @@ a.nav-text  {
     overflow-y: auto;
 }
 
-
 .cart-header-container {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 460%;
+    width: 100%;
     border-bottom: 2px solid grey;
-    padding: 0 0 10px 0;
+    padding: 0 5px 10px 0;
 }
 
 .cart-text {

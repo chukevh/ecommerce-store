@@ -34,15 +34,13 @@ export default function ShoppingCart(props) {
     return (
         <Offcanvas show={props.isOpen} onHide={toggleCart} placement="end">
             <Offcanvas.Header>
-                <Offcanvas.Title >
-                    <div className="cart-header-container">
-                        <h1 className="cart-text">Cart</h1>
-                        <CloseButton 
-                            onClick={toggleCart}
-                            className="close-button"
-                        />
-                    </div>
-                </Offcanvas.Title>
+                <div className="cart-header-container">
+                    <h1 className="cart-text">Cart</h1>
+                    <CloseButton 
+                        onClick={toggleCart}
+                        className="close-button"
+                    />
+                </div>
             </Offcanvas.Header>
             <Offcanvas.Body>
                 <div className="cart-container">
