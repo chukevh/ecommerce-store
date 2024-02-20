@@ -33,14 +33,24 @@ export default function ShoppingCart(props) {
                 <Offcanvas.Title >
                     <div className="cart-header-container">
                         <h1 className="cart-text">Cart</h1>
-                        <CloseButton onClick={toggleCart}className="close-button"/>
+                        <CloseButton 
+                            onClick={toggleCart}
+                            className="close-button"
+                        />
                     </div>
                 </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-                <Stack gap={3}>
-                    {cartElements}
-                </Stack>
+                <div className="cart-items-container">
+                    <Stack gap={3}>
+                        {cartElements}
+                    </Stack>
+                    <button 
+                        className="cart-checkout-button" 
+                    >
+                        Checkout
+                    </button>
+                </div>
             </Offcanvas.Body>
         </Offcanvas>
     )
