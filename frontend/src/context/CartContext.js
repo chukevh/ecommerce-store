@@ -14,12 +14,7 @@ export const CartContext = React.createContext({
 })
 
 export function CartProvider({ children }) {
-    const [cartItems, setCartItems] = React.useState([
-        {
-            id: 2, 
-            quantity: 1
-        }
-    ])
+    const [cartItems, setCartItems] = React.useState([])
     const [isOpen, setIsOpen] = React.useState(false)
 
     function toggleCart() {
