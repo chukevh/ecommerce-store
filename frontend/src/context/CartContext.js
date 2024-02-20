@@ -18,7 +18,35 @@ export function CartProvider({ children }) {
         {
             id: 2, 
             quantity: 1
-        }
+        },
+        {
+            id: 2, 
+            quantity: 1
+        },
+        {
+            id: 2, 
+            quantity: 1
+        },
+        {
+            id: 2, 
+            quantity: 1
+        },
+        {
+            id: 2, 
+            quantity: 1
+        },
+        {
+            id: 2, 
+            quantity: 1
+        },
+        {
+            id: 2, 
+            quantity: 1
+        },
+        {
+            id: 2, 
+            quantity: 1
+        },
     ])
     const [isOpen, setIsOpen] = React.useState(false)
 

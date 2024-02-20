@@ -572,11 +572,17 @@ a.nav-text  {
     background-color: black;
 } */
 
-.cart-items-container {
-    position: relative;
-    
+.cart-container {
     height: 100%;
+    position: relative;
 }
+
+.cart-items-container {
+    display: flex;
+    height: 92%;
+    overflow-y: auto;
+}
+
 
 .cart-header-container {
     display: flex;
@@ -601,6 +607,10 @@ a.nav-text  {
 .cart-item-img {
     width: 125px;
     object-fit: cover;
+}
+
+.cart-item-cards-container {
+    height: 50%;
 }
 
 .cart-item-description-container {
@@ -660,7 +670,7 @@ a.nav-text  {
     width: 100%;
     padding: 12px 0px;
     position: absolute;
-    bottom: 0;
+    bottom: 0%;
     transition: all .3s ease;
 }
 
