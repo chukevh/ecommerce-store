@@ -5,6 +5,7 @@ import { ShirtDataProvider } from "./ShirtDataContext"
 export const CartContext = React.createContext({
     items: [],
     getItemQuantity: () => {},
+    addQuantityToCart: () => {},
     addToCart: () => {},
     decreaseFromCart: () => {},
     deleteFromCart: () => {},
@@ -28,7 +29,7 @@ export function CartProvider({ children }) {
         return cartItems.find((item) => item.id === id)?.quantity || 0
     }
 
-    function addToCart(id, quantity) {
+    function addQuantityToCart(id, quantity) {
         setCartItems(prevCart => {
             if (!prevCart.find((item) => item.id === id)) {
                 return [
@@ -49,13 +50,52 @@ export function CartProvider({ children }) {
         }) 
     }
 
+    function addToCart(id) {
+        setCartItems(prevCart => {
+            return prevCart.map((item) => {
+                if (item.id === id) {
+                    return {
+                        ...item,
+                        quantity: item.quantity + 1
+                    } 
+                } else {
+                    return item
+                }
+            })
+        }) 
+    }
+
+    function decreaseFromCart(id) {
+        setCartItems(prevCart => {
+            if (prevCart.find((item) => item.id === id).quantity === 1) {
+                deleteFromCart(id)
+            }
+            return prevCart.map((item) => {
+                if (item.id === id) {
+                    return {
+                        ...item,
+                        quantity: item.quantity - 1
+                    }
+                } else {
+                    return item
+                }
+            })
+        }) 
+    }
+
+    function deleteFromCart(id) {
+        setCartItems(prevCart => {
+            return prevCart.filter((item) => item.id !== id)
+        })
+    }
+
     const contextValue = {
         items: cartItems,
         getItemQuantity,
+        addQuantityToCart,
         addToCart,
-        // addQuantityToCart,
-        // decreaseFromCart,
-        // deleteFromCart,
+        decreaseFromCart,
+        deleteFromCart,
         // getCartQuantity
         toggleCart
     }

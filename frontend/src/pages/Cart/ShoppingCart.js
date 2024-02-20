@@ -1,5 +1,5 @@
 import React from "react";
-import { Offcanvas, Stack } from "react-bootstrap";
+import { Button, CloseButton, Offcanvas, Stack } from "react-bootstrap";
 import { CartContext } from "../../context/CartContext";
 import CartItemCard from "./CartItemCard";
 
@@ -29,9 +29,12 @@ export default function ShoppingCart(props) {
 
     return (
         <Offcanvas show={props.isOpen} onHide={toggleCart} placement="end">
-            <Offcanvas.Header closeButton>
-                <Offcanvas.Title>
-                    <h1 className="cart-text">Cart</h1>
+            <Offcanvas.Header>
+                <Offcanvas.Title >
+                    <div className="cart-header-container">
+                        <h1 className="cart-text">Cart</h1>
+                        <CloseButton onClick={toggleCart}className="close-button"/>
+                    </div>
                 </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>

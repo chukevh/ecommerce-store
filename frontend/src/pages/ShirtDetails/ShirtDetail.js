@@ -14,7 +14,7 @@ export default function ShirtDetail() {
     const [shirtQuantity, setShirtQuantity] = React.useState(0)
     const location = useLocation()
     const shirtData = useLoaderData()[0]
-    const { addToCart } = React.useContext(CartContext)
+    const { addQuantityToCart } = React.useContext(CartContext)
     
     // React.useEffect(() => {
     //     console.log(items)
@@ -74,7 +74,7 @@ export default function ShirtDetail() {
                                 <button className="shirt-quantity-button" onClick={handleClickIncrement}>+</button>
                             </div>
                             <br/>
-                            <button className="shirt-cart-button" onClick={() => addToCart(shirtData.id, shirtQuantity)}>Add to Cart</button>
+                            <button className="shirt-cart-button" onClick={() => addQuantityToCart(shirtData.id, shirtQuantity)}>Add to Cart</button>
                             <ShirtDetailsDescription 
                                 shirtData={shirtData}
                             />
