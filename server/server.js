@@ -99,7 +99,7 @@ app.post("/api/checkout", async(req,res) => {
             mode: "payment",
             line_items: lineItems,
             success_url: `${SERVER_URL}/cart/order-confirmation`,
-            cancel_url: `${SERVER_URL}/cart/order-failed`,
+            cancel_url: `${SERVER_URL}`,
             billing_address_collection: "required",
             shipping_address_collection: { allowed_countries : ["AU"]},
             shipping_options: [ 
