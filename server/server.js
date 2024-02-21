@@ -13,6 +13,7 @@ dotenv.config();
 const PORT = process.env.PORT;
 const DB_URL = process.env.DB_URL;
 const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY;
+const SERVER_URL = process.env.SERVER_URL;
 
 const app = express()
 app.use(express.json())
@@ -97,8 +98,8 @@ app.post("/api/checkout", async(req,res) => {
             payment_method_types: ["card"],
             mode: "payment",
             line_items: lineItems,
-            success_url: "https://kevshirtshop.com/",
-            cancel_url: "https://kevshirtshop.com/",
+            success_url: `${SERVER_URL}/cart/order-confirmation`,
+            cancel_url: `${SERVER_URL}/cart/order-failed`,
             billing_address_collection: "required",
             shipping_address_collection: { allowed_countries : ["AU"]},
             shipping_options: [ 

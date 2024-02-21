@@ -23,7 +23,7 @@ section {
 
 /* APP */
 .app {
-    min-height: calc(95vh - 128px);
+    min-height: calc(96vh - 128px);
     
 }
 
@@ -678,6 +678,17 @@ a.nav-text  {
     color: white;
 }
 
+/* Order status page */
+.order-container {
+    padding: 10px 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 25vh;
+    text-align: center;
+}
+
 /* Page Not Found */
 .page-not-found-container {
     padding: 3% 10%;
@@ -722,4 +733,5 @@ a.nav-text  {
     height: 5%;
     padding-top: 5vh;
 }
+
 
