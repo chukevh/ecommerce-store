@@ -14,7 +14,6 @@ import Error from "./components/Error.js"
 import { requireAuth } from "./utils.js"
 import Login, { loader as loginLoader, action as loginAction } from "./pages/Login.js"
 import Cart from "./pages/Cart/Cart.js"
-import { CartProvider } from "./context/CartContext.js"
 
 
 
@@ -49,6 +48,7 @@ const router = createBrowserRouter(createRoutesFromElements(
       path="cart" 
       element={<Cart />}
     />
+
     
     <Route path="user-profile" element={<UserProfileLayout />}>
       <Route 
@@ -73,9 +73,7 @@ const router = createBrowserRouter(createRoutesFromElements(
 
 export default function App() {
   return (
-    <CartProvider>
-      <RouterProvider router={router}/>
-    </CartProvider>
+    <RouterProvider router={router}/>
   )
 }
 

@@ -7,16 +7,23 @@ import Shirt from "./models/shirt.js"
 import path from "path"
 import { dirname } from "path"
 import { fileURLToPath } from 'url';
+import Stripe from "stripe";
 
 dotenv.config();
+const PORT = process.env.PORT;
+const DB_URL = process.env.DB_URL;
+const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY;
 
 const app = express()
 app.use(express.json())
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const _dirname = path.dirname("")
 const buildPath = path.join(_dirname, "../frontend/build")
 app.use(express.static(buildPath))
+
+const stripe = new Stripe(STRIPE_SECRET_KEY)
 
 
 app.get("/api", (req,res) => {
@@ -77,7 +84,36 @@ app.post("/api/login", async(req,res) => {
         }
     } catch (error) {
         console.log(error.message)
-        res.status(500).json({message: error.message})
+        res.status(500).json({ message: error.message })
+    }
+})
+
+app.post("/api/checkout", async(req,res) => {
+    console.log("Checking out")
+    try {
+        const lineItems = req.body
+        console.log(lineItems)
+        const session = await stripe.checkout.sessions.create({
+            payment_method_types: ["card"],
+            mode: "payment",
+            line_items: lineItems,
+            success_url: "https://kevshirtshop.com/",
+            cancel_url: "https://kevshirtshop.com/",
+            billing_address_collection: "required",
+            shipping_address_collection: { allowed_countries : ["AU"]},
+            shipping_options: [ 
+                { 
+                    shipping_rate : "shr_1OmEXGINq4VScbw35GfjLLeh"
+                },
+                {
+                    shipping_rate: "shr_1OmF0kINq4VScbw3rYA61Ln6"
+                }
+            ]
+        })
+        res.status(200).json({ url: session.url})
+    } catch (error) {
+        console.log(error.message)
+        res.status(500).json({ message : error.message })
     }
 })
 
@@ -119,18 +155,21 @@ app.post("/api/login", async(req,res) => {
 //     }
 // })
 
-// // Update all shirts data
+// Update all shirts data
 // app.post("/api/t-shirts/update-manual", async(req,res) => {
 //     try {
 //         let changeArray = [
-//             { genre: "games"},
-//             { genre: "misc"},
-//             { genre: "games"},
-//             { genre: "games"},
-//             { genre: "anime"},
-//             { genre: "misc"},
+//             { stripeId: "price_1OmDO5INq4VScbw3y21RS3ML"},
+//             { stripeId: "price_1OmEIXINq4VScbw3Y03nyk3F"},
+//             { stripeId: "price_1OmERlINq4VScbw3gy6FEsQE"},
+//             { stripeId: "price_1OmESBINq4VScbw3fANMVFcM"},
+//             { stripeId: "price_1OmESZINq4VScbw3vAAceDvG"},
+//             { stripeId: "price_1OmEddINq4VScbw38uR5a3br"},
+//             { stripeId: "price_1OmEdzINq4VScbw3v7BYqJ3I"},
+//             { stripeId: "price_1OmEejINq4VScbw3nPNoik7M"},
+//             { stripeId: "price_1OmEf4INq4VScbw3lYF4Y6uI"}
 //         ]
-//         for (let id = 1; id < 7; id++) {
+//         for (let id = 1; id < 10; id++) {
 //             const shirt = await Shirt.updateOne(
 //                 {"id" : [id]}, 
 //                 { $set: changeArray[id-1]  }
@@ -145,6 +184,20 @@ app.post("/api/login", async(req,res) => {
 //     }
 // })
 
+// app.post("/api/t-shirts/update-single", async(req,res) => {
+//     try {
+//         const shirt = await Shirt.updateOne(
+//             {"id" : 1},
+//             { $set: { stripeId: "price_1OmEIxINq4VScbw3Fa7leE4g" }}
+//         )
+//         console.log("updated")
+//         res.status(200).json(shirt)
+//     } catch (error) {
+//         console.log(error.message)
+//         res.status(500).json({ message : error.message })
+//     }
+// })
+
 app.get("*", function(req,res) {
     res.sendFile(
         path.join(__dirname, "../frontend/build/index.html"),
@@ -156,8 +209,7 @@ app.get("*", function(req,res) {
     )
 })
 
-const PORT = process.env.PORT;
-const DB_URL = process.env.DB_URL;
+
 
 app.listen(PORT, () => {
     console.log(`server is listening on port ${PORT}`);
@@ -167,5 +219,6 @@ app.listen(PORT, () => {
         }).catch((error) => {
             console.log(error);
         })
+    
 });
 

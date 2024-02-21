@@ -19,7 +19,6 @@ export async function action({ request }) {
     }
 
     try {
-        
         if (password === passwordConfirm) {
             await signupUser(userDetails)
         } else {

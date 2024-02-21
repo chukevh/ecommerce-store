@@ -2,11 +2,13 @@ import React from "react";
 import { CloseButton, Offcanvas, Stack } from "react-bootstrap";
 import { CartContext } from "../../context/CartContext";
 import CartItemCard from "./CartItemCard";
+import { useNavigate } from "react-router-dom";
 
 
 export default function ShoppingCart(props) {
     const { toggleCart, items } = React.useContext(CartContext)
     const [allShirtsData, setAllShirtsData] = React.useState()
+    const navigate = useNavigate()
     
     React.useEffect(() => {
         fetch("/api/t-shirts")
@@ -28,7 +30,26 @@ export default function ShoppingCart(props) {
     : <p>Your cart is empty!</p>
 
     function cartCheckout() {
-        // Send to Stripe
+        let lineItems = []
+        lineItems = items.map((item) => {
+            const shirtStripeId = allShirtsData.find((shirt) => shirt.id === item.id).stripeId
+            return {
+                price: shirtStripeId,
+                quantity: item.quantity
+            }
+        })
+        console.log(lineItems)
+        try {
+            fetch("/api/checkout", { 
+                method: "post", 
+                headers: {'Content-Type': 'application/json'}, 
+                body: JSON.stringify(lineItems) 
+            })
+                .then(res => res.json())
+                .then(({ url }) => window.location = url)
+        } catch (error) {
+            console.log(error.message)
+        }
     }
 
     return (
@@ -54,7 +75,7 @@ export default function ShoppingCart(props) {
                     </div>
                     <button 
                             className="cart-checkout-button" 
-                            onClick={cartCheckout}
+                            onClick={()=>cartCheckout()}
                         >
                             Checkout
                     </button>

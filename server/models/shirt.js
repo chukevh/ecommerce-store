@@ -7,6 +7,10 @@ const shirtSchema = mongoose.Schema(
             type: Number,
             required: true
         },
+        stripeId: {
+            type: String,
+            required: true
+        },
         img: {
             type: String,
             required: true

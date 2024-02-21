@@ -15,11 +15,6 @@ export default function ShirtDetail() {
     const shirtData = useLoaderData()[0]
     const { addQuantityToCart } = React.useContext(CartContext)
     
-    // React.useEffect(() => {
-    //     console.log(items)
-    // },[items])
-
-
     function handleClickIncrement() {
         setShirtQuantity(prevState => prevState + 1)
     }
@@ -35,9 +30,8 @@ export default function ShirtDetail() {
     }
 
     const search = `?${location.state?.search}` || ""
-    // const search = location.state && location.state.search || ""
+    // same as const search = location.state && location.state.search || ""
     
-
     return (
         <div>
             <div className="shirt-hero-container">
