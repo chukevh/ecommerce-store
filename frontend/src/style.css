@@ -494,6 +494,11 @@ a.nav-text  {
     width: 30%;
     border: 1px solid black;
     border-radius: 10px;
+    cursor: pointer;
+}
+
+.shirt-small-img:hover {
+    opacity: 0.6;
 }
 
 .shirt-details-container {

@@ -7,15 +7,22 @@ export default function ShirtDetailPictures(props) {
     const [index, setIndex] = React.useState(0)
     
     console.log(shirtImages)
-    const shirtScrollElements = shirtImages.map((img) => {
+    const shirtScrollElements = shirtImages.map((img, idx) => {
         return (
-            <img src={`/images/${img}`} className="shirt-small-img"/>
+            <img src={`/images/${img}`} className="shirt-small-img" onClick={()=>switchIndex(idx)}/>
         )
     })
 
+    function switchIndex(idx) {
+        setIndex(idx)
+    }
+    function handleSelect(selectedIndex) {
+        setIndex(selectedIndex)
+    }
+    
     return (
         <div className="shirt-detail-img-container">
-            <Carousel variant="dark" interval={null} indicators={false} className="shirt-hero-img-container">
+            <Carousel activeIndex={index} onSelect={handleSelect} variant="dark" interval={null} indicators={false} className="shirt-hero-img-container">
                 <Carousel.Item>
                     <img src={`/images/${shirtData.img[0]}`} alt="shirt" className="shirt-hero-img"/>
                 </Carousel.Item>
