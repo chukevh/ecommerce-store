@@ -8,7 +8,7 @@ export default function Card(props) {
                 <div className="card-image-container">
                     {props.shirt.stock === 0 && <div className="card-badge">SOLD OUT</div>}
                     <img 
-                        src={`./images/${props.shirt.img}`}
+                        src={`./images/${props.shirt.img[0]}`}
                         alt={props.shirt.name} 
                         className="card-image"
                     />

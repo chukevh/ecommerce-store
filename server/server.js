@@ -157,47 +157,47 @@ app.post("/api/checkout", async(req,res) => {
 // })
 
 // Update all shirts data
-// app.post("/api/t-shirts/update-manual", async(req,res) => {
-//     try {
-//         let changeArray = [
-//             { stripeId: "price_1OmDO5INq4VScbw3y21RS3ML"},
-//             { stripeId: "price_1OmEIXINq4VScbw3Y03nyk3F"},
-//             { stripeId: "price_1OmERlINq4VScbw3gy6FEsQE"},
-//             { stripeId: "price_1OmESBINq4VScbw3fANMVFcM"},
-//             { stripeId: "price_1OmESZINq4VScbw3vAAceDvG"},
-//             { stripeId: "price_1OmEddINq4VScbw38uR5a3br"},
-//             { stripeId: "price_1OmEdzINq4VScbw3v7BYqJ3I"},
-//             { stripeId: "price_1OmEejINq4VScbw3nPNoik7M"},
-//             { stripeId: "price_1OmEf4INq4VScbw3lYF4Y6uI"}
-//         ]
-//         for (let id = 1; id < 10; id++) {
-//             const shirt = await Shirt.updateOne(
-//                 {"id" : [id]}, 
-//                 { $set: changeArray[id-1]  }
-//             );
-//             console.log(shirt)
-//         }
-//         console.log("updated")
-//         res.status(200).json(changeArray)
-//     } catch (error) {
-//         console.log(error.message);
-//         res.status(500).json({message: error.message});
-//     }
-// })
-
-app.post("/api/t-shirts/update-single", async(req,res) => {
+app.post("/api/t-shirts/update-manual", async(req,res) => {
     try {
-        const shirt = await Shirt.updateOne(
-            {"id" : 1},
-            { $set: { img : ["bg3-shirt.png", "bg3graphic.png", "shirt-back.png"] }}
-        )
+        let changeArray = [
+            { img: ["bg3-shirt.png", "bg3-graphic.png", "shirt-back.png"]},
+            { img: ["nilliur-shirt.png", "nilliur-graphic.png", "shirt-back.png"]},
+            { img: ["stardew-shirt.png", "stardew-graphic.png", "shirt-back.png"]},
+            { img: ["tft-shirt.png", "tft-graphic.png", "shirt-back.png"]},
+            { img: ["bleach-shirt.png", "bleach-graphic.png", "shirt-back.png"]},
+            { img: ["sampletext-shirt.png", "sampletext-graphic.png", "shirt-back.png"]},
+            { img: ["epicseven-shirt.png", "epicseven-graphic.png", "shirt-back.png"]},
+            { img: ["soju-shirt.png", "soju-graphic.png", "shirt-back.png"]},
+            { img: ["fav-babes-shirt.png", "fav-babes-graphic.png", "base-back.png"]},
+        ]
+        for (let id = 1; id < 10; id++) {
+            const shirt = await Shirt.updateOne(
+                {"id" : [id]}, 
+                { $set: changeArray[id-1]  }
+            );
+            console.log(shirt)
+        }
         console.log("updated")
-        res.status(200).json(shirt)
+        res.status(200).json(changeArray)
     } catch (error) {
-        console.log(error.message)
-        res.status(500).json({ message : error.message })
+        console.log(error.message);
+        res.status(500).json({message: error.message});
     }
 })
+
+// app.post("/api/t-shirts/update-single", async(req,res) => {
+//     try {
+//         const shirt = await Shirt.updateOne(
+//             {"id" : 1},
+//             { $set: { img : ["bg3-shirt.png", "bg3graphic.png", "shirt-back.png"] }}
+//         )
+//         console.log("updated")
+//         res.status(200).json(shirt)
+//     } catch (error) {
+//         console.log(error.message)
+//         res.status(500).json({ message : error.message })
+//     }
+// })
 
 app.get("*", function(req,res) {
     res.sendFile(
