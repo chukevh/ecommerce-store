@@ -9,7 +9,7 @@ export default function CartItemCard(props) {
     
     return (
         <Stack direction="horizontal" gap={2} className="cart-item-card-container">
-            <img src={`/images/${shirtData.img}`} alt="shirt" className="cart-item-img"/>
+            <img src={`/images/${shirtData.img[0]}`} alt="shirt" className="cart-item-img"/>
             <div className="cart-item-description-container">
                 <div><span className="cart-item-description-text title">{shirtData.name}</span></div>
                 <div><span className="cart-item-description-text">OSFA</span></div>

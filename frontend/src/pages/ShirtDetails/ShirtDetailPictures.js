@@ -6,16 +6,15 @@ export default function ShirtDetailPictures(props) {
     const shirtImages = shirtData.img
     const [index, setIndex] = React.useState(0)
     
-    console.log(shirtImages)
     const shirtScrollElements = shirtImages.map((img, idx) => {
         return (
-            <img src={`/images/${img}`} className="shirt-small-img" onClick={()=>switchIndex(idx)}/>
+            <img key={idx} src={`/images/${img}`} className="shirt-small-img" onClick={()=>switchIndex(idx)}/>
         )
     })
 
     const shirtCarouselElement = shirtImages.map((img, idx) => {
         return (
-            <Carousel.Item>
+            <Carousel.Item key={idx}>
                 <img src={`/images/${shirtData.img[idx]}`} alt="shirt" className="shirt-hero-img"/>
             </Carousel.Item>
         )

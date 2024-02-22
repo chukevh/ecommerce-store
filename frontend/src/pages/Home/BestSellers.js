@@ -4,11 +4,12 @@ import { useLoaderData } from "react-router-dom"
 
 export default function BestSellers() {
     const shirtData = useLoaderData()
+    const filteredShirts = shirtData.filter((shirt) => shirt.name !== "???")
     
-    shirtData.sort((s1, s2) => s2.rating['$numberDecimal'] - s1.rating['$numberDecimal'])
-    shirtData.length = 6
+    filteredShirts.sort((s1, s2) => s2.rating['$numberDecimal'] - s1.rating['$numberDecimal'])
+    filteredShirts.length = 6
     
-    const cardElements = shirtData.map((shirt) => {
+    const cardElements = filteredShirts.map((shirt) => {
         return (
             <Card
             key={shirt.id}

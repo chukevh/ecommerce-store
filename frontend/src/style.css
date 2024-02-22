@@ -150,7 +150,6 @@ a.nav-text  {
 
 
 /* CARDS */
-
 .cards-list {
     display: flex;
     flex-wrap: nowrap;
@@ -169,15 +168,14 @@ a.nav-text  {
     /* align-items: center; */
 }
 
-.card:hover .card-image-container {
-    filter: brightness(70%);
+.card-image-container:hover {
+    filter: brightness(70%); 
 }
 
 .card-image {
     width: 100%;
     border-radius: 10px;
 }
-
 
 .card > a {
     color: black;
@@ -470,7 +468,7 @@ a.nav-text  {
 
 .shirt-hero-img-container {
     width: 100%;
-    min-width: 350px;
+    min-width: 300px;
     max-width: 630px; 
 }
 
@@ -504,7 +502,7 @@ a.nav-text  {
 .shirt-details-container {
     padding-left: 5%;
     width: 43%;
-    min-width: 350px;
+    min-width: 300px;
 }
 
 .shirt-details-name {
