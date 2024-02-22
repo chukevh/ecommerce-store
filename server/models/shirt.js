@@ -11,10 +11,12 @@ const shirtSchema = mongoose.Schema(
             type: String,
             required: true
         },
-        img: {
-            type: String,
-            required: true
-        },
+        img: [
+            {
+                type: String,
+                required: true,
+            }
+        ],
         imgBack: {
             type: String,
             required: true

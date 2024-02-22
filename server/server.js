@@ -185,19 +185,19 @@ app.post("/api/checkout", async(req,res) => {
 //     }
 // })
 
-// app.post("/api/t-shirts/update-single", async(req,res) => {
-//     try {
-//         const shirt = await Shirt.updateOne(
-//             {"id" : 1},
-//             { $set: { stripeId: "price_1OmEIxINq4VScbw3Fa7leE4g" }}
-//         )
-//         console.log("updated")
-//         res.status(200).json(shirt)
-//     } catch (error) {
-//         console.log(error.message)
-//         res.status(500).json({ message : error.message })
-//     }
-// })
+app.post("/api/t-shirts/update-single", async(req,res) => {
+    try {
+        const shirt = await Shirt.updateOne(
+            {"id" : 1},
+            { $set: { img : ["bg3-shirt.png", "bg3graphic.png", "shirt-back.png"] }}
+        )
+        console.log("updated")
+        res.status(200).json(shirt)
+    } catch (error) {
+        console.log(error.message)
+        res.status(500).json({ message : error.message })
+    }
+})
 
 app.get("*", function(req,res) {
     res.sendFile(

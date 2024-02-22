@@ -399,9 +399,14 @@ a.nav-text  {
     text-decoration: underline;
 }
 
+.shirtcard-img-container {
+    width: 100%;
+    height: auto;
+}
+
 .shirtcard-img {
     width: 100%;
-    border-radius: 5px;
+
 }
 
 .shirtcard-details {
@@ -434,8 +439,16 @@ a.nav-text  {
 /* SHIRT DETAILS PAGES */
 .shirt-hero-container {
     padding-top: 1.5%;
-    padding-left: 4%;
-    padding-right: 4%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.shirt-detail-container {
+    margin-top: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .back-button {
@@ -449,27 +462,44 @@ a.nav-text  {
 }
 
 .shirt-detail-img-container {
-    margin-top: 4.5%;
+    width: 45%;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.shirt-details-container {
-    padding-left: 5%;
-    width: 42%;
-    
+    flex-direction: column;
+    align-items: center;
 }
 
 .shirt-hero-img-container {
-    width: 53%;
+    width: 100%;
     min-width: 350px;
-    max-width: 700px;
+    max-width: 630px; 
 }
 
 .shirt-hero-img {
     width: 100%;
+}
+
+.shirt-small-img-container {
+    padding-top: 5%;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 5%;
+}
+
+.shirt-small-img {
+    width: 30%;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.shirt-details-container {
+    padding-left: 5%;
+    width: 43%;
+    min-width: 350px;
 }
 
 .shirt-details-name {

@@ -3,6 +3,7 @@ import { Link, useLocation, useLoaderData } from "react-router-dom"
 import ShirtDetailsDescription from "./ShirtDetailsDescription"
 import { getSingleShirtData } from "../../api"
 import { CartContext } from "../../context/CartContext"
+import ShirtDetailPictures from "./ShirtDetailPictures"
 //import star from "../images/star.png"
 
 export function loader({ params }) {
@@ -36,10 +37,8 @@ export default function ShirtDetail() {
         <div>
             <div className="shirt-hero-container">
                 <Link to={`../${search}`} relative="path" className="back-button">← Back to all shirts</Link>
-                <div className="shirt-detail-img-container">
-                    <div className="shirt-hero-img-container">
-                        <img src={`/images/${shirtData.img}`} alt="shirt" className="shirt-hero-img"/>
-                    </div>
+                <div className="shirt-detail-container">
+                    <ShirtDetailPictures shirtData={shirtData}/>
                     <div className="shirt-details-container">
                         <span className="shirt-details-name">{shirtData.name}</span>
                         <div>
