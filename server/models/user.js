@@ -32,7 +32,8 @@ const userSchema = mongoose.Schema(
             default: true
         },
         location: String
-    }
+    },
+    { timestamps: true}
 )
 
 const User = mongoose.model('User', userSchema)

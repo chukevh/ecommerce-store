@@ -1,13 +1,21 @@
 import express from "express";
 import mongoose from "mongoose";
-//import shirts from "./data/shirtData.js";
+import bcrypt from "bcrypt";
 import User from "./models/user.js";
 import dotenv from "dotenv";
 import Shirt from "./models/shirt.js"
-import path from "path"
-import { dirname } from "path"
+import path from "path";
+import { dirname } from "path";
 import { fileURLToPath } from 'url';
 import Stripe from "stripe";
+
+const password = "password1"
+const hash = await bcrypt.hash(password, 13)
+
+
+const isMatch = await bcrypt.compare("password1", hash)
+
+console.log(password, hash, isMatch)
 
 dotenv.config();
 const PORT = process.env.PORT;
@@ -57,7 +65,10 @@ app.get("/api/t-shirts/:id", async(req,res) => {
 // Sign up user to db
 app.post("/api/signup", async(req,res) => {
     try {
-        const user = await User.create(req.body);
+        let userDetails = req.body
+        const passwordHash = await bcrypt.hash(userDetails.password, 13)
+        userDetails.password = passwordHash
+        const user = await User.create(userDetails);
         res.status(200).json({user, message: "User signed up successfully"});
         console.log("User signed up successfully")
     } catch (error) {
@@ -69,15 +80,15 @@ app.post("/api/signup", async(req,res) => {
 app.post("/api/login", async(req,res) => {
     try {
         console.log("Attempting login")
-        console.log(req.body)
         const [user] = await User.find({ email : req.body.email })
         if (user) {
-            if (user.password === req.body.password) {
-                res.status(200).json({ message: "Login Successful"})
+            const isMatch = await bcrypt.compare(req.body.password, user.password)
+            if (isMatch) {
+                res.status(200).json({ message: "Login Successful" })
                 console.log("Login successful")
             } else {
                 res.status(401).json({ message: "Login failed, password is incorrect" })
-                console.log({ message: "Login failed, password incorrect"})
+                console.log({ message: "Login failed, password incorrect" })
             }
         } else {
             res.status(401).json({ message: "Email not found" })
@@ -156,34 +167,34 @@ app.post("/api/checkout", async(req,res) => {
 //     }
 // })
 
-// Update all shirts data
-app.post("/api/t-shirts/update-manual", async(req,res) => {
-    try {
-        let changeArray = [
-            { img: ["bg3-shirt.png", "bg3-graphic.png", "shirt-back.png"]},
-            { img: ["nilliur-shirt.png", "nilliur-graphic.png", "shirt-back.png"]},
-            { img: ["stardew-shirt.png", "stardew-graphic.png", "shirt-back.png"]},
-            { img: ["tft-shirt.png", "tft-graphic.png", "shirt-back.png"]},
-            { img: ["bleach-shirt.png", "bleach-graphic.png", "shirt-back.png"]},
-            { img: ["sampletext-shirt.png", "sampletext-graphic.png", "shirt-back.png"]},
-            { img: ["epicseven-shirt.png", "epicseven-graphic.png", "shirt-back.png"]},
-            { img: ["soju-shirt.png", "soju-graphic.png", "shirt-back.png"]},
-            { img: ["fav-babes-shirt.png", "fav-babes-graphic.png", "base-back.png"]},
-        ]
-        for (let id = 1; id < 10; id++) {
-            const shirt = await Shirt.updateOne(
-                {"id" : [id]}, 
-                { $set: changeArray[id-1]  }
-            );
-            console.log(shirt)
-        }
-        console.log("updated")
-        res.status(200).json(changeArray)
-    } catch (error) {
-        console.log(error.message);
-        res.status(500).json({message: error.message});
-    }
-})
+// // Update all shirts data
+// app.post("/api/t-shirts/update-manual", async(req,res) => {
+//     try {
+//         let changeArray = [
+//             { img: ["bg3-shirt.png", "bg3-graphic.png", "shirt-back.png"]},
+//             { img: ["nilliur-shirt.png", "nilliur-graphic.png", "shirt-back.png"]},
+//             { img: ["stardew-shirt.png", "stardew-graphic.png", "shirt-back.png"]},
+//             { img: ["tft-shirt.png", "tft-graphic.png", "shirt-back.png"]},
+//             { img: ["bleach-shirt.png", "bleach-graphic.png", "shirt-back.png"]},
+//             { img: ["sampletext-shirt.png", "sampletext-graphic.png", "shirt-back.png"]},
+//             { img: ["epicseven-shirt.png", "epicseven-graphic.png", "shirt-back.png"]},
+//             { img: ["soju-shirt.png", "soju-graphic.png", "shirt-back.png"]},
+//             { img: ["fav-babes-shirt.png", "fav-babes-graphic.png", "base-back.png"]},
+//         ]
+//         for (let id = 1; id < 10; id++) {
+//             const shirt = await Shirt.updateOne(
+//                 {"id" : [id]}, 
+//                 { $set: changeArray[id-1]  }
+//             );
+//             console.log(shirt)
+//         }
+//         console.log("updated")
+//         res.status(200).json(changeArray)
+//     } catch (error) {
+//         console.log(error.message);
+//         res.status(500).json({message: error.message});
+//     }
+// })
 
 // app.post("/api/t-shirts/update-single", async(req,res) => {
 //     try {

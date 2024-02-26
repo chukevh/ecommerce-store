@@ -1,5 +1,5 @@
 import React from "react"
-import { Form, Link, useActionData } from "react-router-dom"
+import { Form, Link, redirect, useActionData } from "react-router-dom"
 import { signupUser } from "../api"
 
 export async function action({ request }) {
@@ -21,14 +21,13 @@ export async function action({ request }) {
     try {
         if (password === passwordConfirm) {
             await signupUser(userDetails)
+            return redirect("/user-profile")
         } else {
             throw new Error("Passwords do not match")
         }
     } catch (error) {
         return error.message
     }
-    
-    return null
 }
 
 export default function SignUp() {
@@ -65,7 +64,7 @@ export default function SignUp() {
                 />
                 <input
                     className="signup-input"
-                    type="text"
+                    type="password"
                     placeholder="Password"
                     name="password"
                     id="password"
@@ -73,7 +72,7 @@ export default function SignUp() {
                 />
                 <input
                     className="signup-input"
-                    type="text"
+                    type="password"
                     placeholder="Confirm Password"
                     name="passwordConfirm"
                     id="passwordConfirm"

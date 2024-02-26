@@ -11,7 +11,7 @@ export function loader({ params }) {
 }
 
 export default function ShirtDetail() {
-    const [shirtQuantity, setShirtQuantity] = React.useState(0)
+    const [shirtQuantity, setShirtQuantity] = React.useState(1)
     const location = useLocation()
     const shirtData = useLoaderData()[0]
     const { addQuantityToCart } = React.useContext(CartContext)
@@ -22,10 +22,10 @@ export default function ShirtDetail() {
 
     function handleClickDecrement() {
         setShirtQuantity(prevState => {
-            if (prevState > 0) {
+            if (prevState > 1) {
                 return (prevState - 1)
             } else {
-                return 0
+                return 1
             }
         })
     }

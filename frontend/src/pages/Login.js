@@ -31,8 +31,8 @@ export default function Login() {
     return (
         <div className="form-container">
             <h1>Sign in to your account</h1>
-            { message && <h3 className="login-text">{message}</h3>}
-            { errorMessage && <h3 className="login-text">{errorMessage}</h3>}
+            { message && <h3 className="login-text">{message}</h3> }
+            { errorMessage && <h3 className="login-text">{errorMessage}</h3> }
             <Form method="post" className="form-login" replace>
                 <input
                     className="signup-input"
@@ -43,7 +43,7 @@ export default function Login() {
                 />
                 <input
                     className="signup-input"
-                    type="text"
+                    type="password"
                     placeholder="Password"
                     name="password"
                     id="password"

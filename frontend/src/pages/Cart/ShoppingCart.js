@@ -71,12 +71,16 @@ export default function ShoppingCart(props) {
                             {cartElements}
                         </Stack>
                     </div>
-                    <button 
-                            className="cart-checkout-button" 
-                            onClick={()=>cartCheckout()}
-                        >
-                            Checkout
-                    </button>
+                    { 
+                        items.length > 0 && 
+                        allShirtsData && 
+                        <button 
+                                className="cart-checkout-button" 
+                                onClick={()=>cartCheckout()}
+                            >
+                                Checkout
+                        </button>
+                    }
                 </div>
             </Offcanvas.Body>
         </Offcanvas>

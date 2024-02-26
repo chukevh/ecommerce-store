@@ -69,7 +69,7 @@ export function CartProvider({ children }) {
     function decreaseFromCart(id) {
         setCartItems(prevCart => {
             if (prevCart.find((item) => item.id === id).quantity === 1) {
-                deleteFromCart(id)
+                return prevCart.filter((item) => item.id !== id)
             }
             return prevCart.map((item) => {
                 if (item.id === id) {
