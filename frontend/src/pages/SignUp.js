@@ -21,6 +21,7 @@ export async function action({ request }) {
     try {
         if (password === passwordConfirm) {
             await signupUser(userDetails)
+            localStorage.setItem("loggedin", true)
             return redirect("/user-profile")
         } else {
             throw new Error("Passwords do not match")

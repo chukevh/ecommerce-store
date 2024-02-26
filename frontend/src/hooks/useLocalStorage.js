@@ -16,3 +16,7 @@ export function useLocalStorage() {
 
     return [value, setValue]
 }
+
+export function useUserLocalStorage() {
+    
+}
