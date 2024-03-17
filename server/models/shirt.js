@@ -33,6 +33,10 @@ const shirtSchema = mongoose.Schema(
             type: String,
             required: true
         },
+        description: {
+            type: String,
+            required: true
+        }, 
         price: {
             type: Decimal128,
             required: true

@@ -541,11 +541,6 @@ a.nav-text  {
     border: 0px;
 }
 
-
-/* .shirt-quantity-count {
-
-} */
-
 .shirt-cart-button {
     border: 1px solid black;
     cursor: pointer;
@@ -577,6 +572,16 @@ a.nav-text  {
     border-color: #DCDCDC;
     border-bottom-style: solid;
     font-size: 15px;
+}
+
+.shirt-description-product{
+    padding: 0.5rem 0.5rem;
+
+}
+
+.shirt-description-list {
+    padding-top: 0.5rem;
+    margin-bottom: 0;
 }
 
 

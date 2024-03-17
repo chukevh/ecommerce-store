@@ -167,19 +167,19 @@ app.post("/api/checkout", async(req,res) => {
 //     }
 // })
 
-// // Update all shirts data
+// Update all shirts data
 // app.post("/api/t-shirts/update-manual", async(req,res) => {
 //     try {
 //         let changeArray = [
-//             { img: ["bg3-shirt.png", "bg3-graphic.png", "shirt-back.png"]},
-//             { img: ["nilliur-shirt.png", "nilliur-graphic.png", "shirt-back.png"]},
-//             { img: ["stardew-shirt.png", "stardew-graphic.png", "shirt-back.png"]},
-//             { img: ["tft-shirt.png", "tft-graphic.png", "shirt-back.png"]},
-//             { img: ["bleach-shirt.png", "bleach-graphic.png", "shirt-back.png"]},
-//             { img: ["sampletext-shirt.png", "sampletext-graphic.png", "shirt-back.png"]},
-//             { img: ["epicseven-shirt.png", "epicseven-graphic.png", "shirt-back.png"]},
-//             { img: ["soju-shirt.png", "soju-graphic.png", "shirt-back.png"]},
-//             { img: ["fav-babes-shirt.png", "fav-babes-graphic.png", "base-back.png"]},
+//             { description: "Unleash your inner warrior with this striking T-shirt, featuring a detailed, dark-toned medieval emblem that commands respect and evokes the spirit of ancient legends. Perfect for the modern-day knight or fantasy enthusiast, it's a bold statement piece that's both stylish and steeped in mystique."},
+//             { description: "Celebrate your love for the renowned Twitch cutie Nilliur! Designed for fans and followers of Nilliur's amazing content, this trendy and comfortable t-shirt is a must-have addition to any Nilliur enthusiast's wardrobe."},
+//             { description: "Escape to your favorite rural retreat with our Stardew Valley T-shirt, where every wear is a step into a charming pixel paradise. It's the perfect attire for any fan looking to show off their love for the tranquil farm life and the cozy community within."},
+//             { description: "Strategize in style with our Teamfight Tactics T-shirt, boasting a sleek golden emblem that's as bold and competitive as the game itself. It's a trophy garment for tacticians who craft victories with skill and flair."},
+//             { description: "Step into the world of soul reapers with this dynamic T-shirt, featuring your favourite fierce samurai warrior set against a backdrop of swirling clouds. It's the ultimate piece for fans who appreciate the blend of action, honor, and shinigamis. The sky is the limit with this tee!"},
+//             { description: "Make a minimalist statement with this crisp T-shirt, showcasing bold 'SAMPLE TEXT' in a stark, eye-catching frame. It's a meme classic, and for those who know? You know."},
+//             { description: "Dive into a world of fantasy with this vibrant T-shirt, adorned with striking anime characters ready for adventure. It's a wearable portal to an epic saga, ideal for fans who live and breathe the gacha life."},
+//             { description: "Celebrate your love for Korea's favorite drink with this playful T-shirt, featuring a cute soju bottle and takeout box in a lighthearted spirit. It's the ideal pick for foodies and party-goers who enjoy a touch of humor with their style."},
+//             { description: "???"},
 //         ]
 //         for (let id = 1; id < 10; id++) {
 //             const shirt = await Shirt.updateOne(
