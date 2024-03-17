@@ -196,11 +196,15 @@ app.post("/api/checkout", async(req,res) => {
 //     }
 // })
 
+// //Update a single shirt
 // app.post("/api/t-shirts/update-single", async(req,res) => {
 //     try {
 //         const shirt = await Shirt.updateOne(
-//             {"id" : 1},
-//             { $set: { img : ["bg3-shirt.png", "bg3graphic.png", "shirt-back.png"] }}
+//             {"id" : 5},
+//             { $set: { 
+//                 brand: "Bleach",
+//                 name: "Ichigo Graphic Tee"
+//             }}
 //         )
 //         console.log("updated")
 //         res.status(200).json(shirt)
@@ -210,16 +214,16 @@ app.post("/api/checkout", async(req,res) => {
 //     }
 // })
 
-app.get("*", function(req,res) {
-    res.sendFile(
-        path.join(__dirname, "../frontend/build/index.html"),
-        function (err) {
-            if (err) {
-                res.status(500).send(err);
-            }
-        }
-    )
-})
+// app.get("*", function(req,res) {
+//     res.sendFile(
+//         path.join(__dirname, "../frontend/build/index.html"),
+//         function (err) {
+//             if (err) {
+//                 res.status(500).send(err);
+//             }
+//         }
+//     )
+// })
 
 
 

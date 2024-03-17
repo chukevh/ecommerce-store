@@ -49,12 +49,12 @@ export default function Header() {
                             Login
                         </NavLink>
                 } */}
-                <Link 
+                {/* <Link 
                     to="search"         
                     className="nav-links-img-container"
                 >
                     <img src={MagnifyingGlass} className="nav-links-img" alt=""/>
-                </Link> 
+                </Link>  */}
                 <Link 
                     to="user-profile" className="nav-links-img-container"
                 >
