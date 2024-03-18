@@ -20,8 +20,8 @@ export async function action({ request }) {
 
     try {
         if (password === passwordConfirm) {
-            await signupUser(userDetails)
-            localStorage.setItem("loggedin", true)
+            const userToken = await signupUser(userDetails)
+            localStorage.setItem("userToken", JSON.stringify(userToken))
             return redirect("/user-profile")
         } else {
             throw new Error("Passwords do not match")
@@ -33,7 +33,7 @@ export async function action({ request }) {
 
 export default function SignUp() {
     const errorMessage = useActionData()
-    console.log(errorMessage)
+    
     return (
         <div className="form-container">
             <h1>Sign up for an account</h1>

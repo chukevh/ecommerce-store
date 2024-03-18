@@ -69,7 +69,13 @@ app.post("/api/signup", async(req,res) => {
         const passwordHash = await bcrypt.hash(userDetails.password, 13)
         userDetails.password = passwordHash
         const user = await User.create(userDetails);
-        res.status(200).json({user, message: "User signed up successfully"});
+        res.status(200).json({ 
+            isLoggedIn: true,
+            email: user.email,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            subscribed: user.subscribed
+        });
         console.log("User signed up successfully")
     } catch (error) {
         console.log(error.message);
@@ -84,7 +90,13 @@ app.post("/api/login", async(req,res) => {
         if (user) {
             const isMatch = await bcrypt.compare(req.body.password, user.password)
             if (isMatch) {
-                res.status(200).json({ message: "Login Successful" })
+                res.status(200).json({ 
+                    isLoggedIn: true,
+                    email: user.email,
+                    firstName: user.firstName,
+                    lastName: user.lastName,
+                    subscribed: user.subscribed
+                })
                 console.log("Login successful")
             } else {
                 res.status(401).json({ message: "Login failed, password is incorrect" })

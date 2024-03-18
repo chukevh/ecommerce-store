@@ -1,15 +1,21 @@
 import { NavLink, Outlet, useNavigate } from "react-router-dom"
+import { UserContext } from "../context/UserContext"
+import React from "react"
 
 export default function UserProfileLayout() {
+    const { userToken, logUserIn, logUserOut } = React.useContext(UserContext)
     const navigate = useNavigate()
     const activeStyle = {
         fontWeight: "bold",
         textDecoration: "underline"
     }
 
+    React.useEffect(() => {
+        logUserIn()
+    }, [])
+
     function handleLogout() {
-        localStorage.setItem("loggedin", false)
-        console.log("Login reset")
+        logUserOut()
         navigate("/", { replace: true })
     }
 

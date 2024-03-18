@@ -1,22 +1,33 @@
 import React from "react"
+import { useUserLocalStorage } from "../hooks/useLocalStorage"
 
-export const userContext = React.createContext({
-    isLoggedIn: false,
-    setIsLoggedIn: () => {}
+export const UserContext = React.createContext({
+    userToken: {},
+    logUserIn: () => {},
+    logUserOut: () => {}
 })
 
 export function UserProvider({ children }) {
-    const [isLoggedIn, setIsLoggedIn] = React.useState(false)
+    const [userToken, setUserToken] = React.useState(useUserLocalStorage())
 
-    
+    function logUserIn() {
+        setUserToken(JSON.parse(localStorage.getItem("userToken")))
+    }
+
+    function logUserOut() {
+        localStorage.removeItem("userToken")
+        setUserToken({})
+    }
+
     const contextValue = { 
-        isLoggedIn, 
-        setIsLoggedIn
+        userToken, 
+        logUserIn,
+        logUserOut
     }
 
     return (
-        <UserProvider value={contextValue}>
+        <UserContext.Provider value={contextValue}>
             { children }
-        </UserProvider>
+        </UserContext.Provider>
     )
 }

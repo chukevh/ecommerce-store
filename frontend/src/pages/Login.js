@@ -13,8 +13,8 @@ export async function action({ request }) {
     
     
     try {
-        await loginUser({email, password})
-        localStorage.setItem("loggedin", true)
+        const userToken = await loginUser({email, password})
+        localStorage.setItem("userToken", JSON.stringify(userToken))
         const pathname = new URL(request.url).searchParams.get("redirectTo") || "/user-profile"
         console.log(pathname)
         return redirect(pathname)

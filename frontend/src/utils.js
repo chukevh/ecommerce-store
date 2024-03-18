@@ -1,11 +1,10 @@
 import { redirect } from "react-router-dom"
 
 export function requireAuth({ request }) {
-    const isLoggedIn = localStorage.getItem("loggedin")
-    
+    const userToken = JSON.parse(localStorage.getItem("userToken"))
     const pathname = new URL(request.url).pathname
     
-    if (isLoggedIn !== "true") {
+    if (userToken === null || userToken.isLoggedIn !== true) {
         return redirect(`/login?message=You must log in first.&redirectTo=${pathname}`)
     }
     return null

@@ -5,11 +5,13 @@ import ProfileImg from "../images/profile.png"
 import Cart from "../images/cart.jpg"
 import MagnifyingGlass from "../images/magnifying-glass.png"
 import { CartContext } from "../context/CartContext"
+import { UserContext } from "../context/UserContext"
 
 export default function Header() {
     const { items, getCartQuantity } = React.useContext(CartContext)
+    const { userToken } = React.useContext(UserContext)
     const [cartQuantity, setCartQuantity] = React.useState(0)
-
+    
     React.useEffect(() => {
         setCartQuantity(getCartQuantity())
     }, [items])
@@ -34,21 +36,15 @@ export default function Header() {
                 >
                     Shop Shirts
                 </NavLink>
-                <NavLink 
-                    to="sign-up"
-                    style={({ isActive }) => isActive ? activeStyle : null }
-                >
-                    Sign-Up
-                </NavLink>
-                {/* {
-                    localStorage.getItem("loggedin") === "false" && 
-                        <NavLink 
-                            to="login"
-                            style={({ isActive }) => isActive ? activeStyle : null }
-                        >
-                            Login
-                        </NavLink>
-                } */}
+                {
+                    Object.keys(userToken).length === 0 && 
+                    <NavLink 
+                        to="sign-up"
+                        style={({ isActive }) => isActive ? activeStyle : null }
+                    >
+                        Sign-Up
+                    </NavLink>
+                }
                 {/* <Link 
                     to="search"         
                     className="nav-links-img-container"
@@ -64,13 +60,6 @@ export default function Header() {
                     <img src={Cart} className="nav-links-img cart" alt=""/>
                     {cartQuantity > 0 && <div className="rounded-circle bg-danger"/>}
                 </button>
-                    
-                {/* <Link 
-                    to="cart"         
-                    className="nav-links-img-container"
-                >
-                    <img src={Cart} className="nav-links-img" alt=""/>
-                </Link>  */}
             </div> 
         </nav>
     )
