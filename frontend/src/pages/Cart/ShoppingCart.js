@@ -2,6 +2,7 @@ import React from "react";
 import { CloseButton, Offcanvas, Stack } from "react-bootstrap";
 import { CartContext } from "../../context/CartContext";
 import CartItemCard from "./CartItemCard";
+import { checkoutUser, getShirtData } from "../../api";
 
 
 export default function ShoppingCart(props) {
@@ -9,8 +10,7 @@ export default function ShoppingCart(props) {
     const [allShirtsData, setAllShirtsData] = React.useState()
     
     React.useEffect(() => {
-        fetch("/api/t-shirts")
-            .then(res => res.json())
+        getShirtData()
             .then(data => setAllShirtsData(data))
     }, [])
     
@@ -36,14 +36,9 @@ export default function ShoppingCart(props) {
                 quantity: item.quantity
             }
         })
-        console.log(lineItems)
+        
         try {
-            fetch("/api/checkout", { 
-                method: "post", 
-                headers: {'Content-Type': 'application/json'}, 
-                body: JSON.stringify(lineItems) 
-            })
-                .then(res => res.json())
+            checkoutUser(lineItems)
                 .then(({ url }) => window.location = url)
         } catch (error) {
             console.log(error.message)

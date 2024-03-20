@@ -5,7 +5,7 @@ import { signupUser } from "../api"
 export async function action({ request }) {
     const formData = await request.formData()
     const firstName = formData.get("firstName")
-    const lastName = formData.get("firstName")
+    const lastName = formData.get("lastName")
     const email = formData.get("email")
     const password = formData.get("password")
     const passwordConfirm = formData.get("passwordConfirm")
