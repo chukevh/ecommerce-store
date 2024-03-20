@@ -39,7 +39,7 @@ export default function UserProfileLayout() {
                 >
                     Orders
                 </NavLink>
-                <button onClick={handleLogout}>Log out</button>
+                <button onClick={handleLogout} className="logout-btn">Log out</button>
             </nav>
             <Outlet />
         </>

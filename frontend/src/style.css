@@ -592,7 +592,7 @@ a.nav-text  {
 .user-profile-nav {
     display: flex;
     justify-content: space-evenly;
-    padding-top: 10px;
+    padding-top: 15px;
 }
 
 .user-profile-nav a {
@@ -606,6 +606,11 @@ a.nav-text  {
     color: #161616;
     text-decoration: underline;
     font-weight: 600;
+}
+
+.logout-btn {
+    border-radius: 9px;
+    background-color: white;
 }
 
 
@@ -652,6 +657,8 @@ a.nav-text  {
     min-width: 50%;
     cursor: pointer;
 }
+
+
 
 
 
