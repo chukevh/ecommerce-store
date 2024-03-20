@@ -1,7 +1,6 @@
 import Shirt from "../models/shirt.js"
 
 // Load all shirts data from server
-//app.get("/api/t-shirts", 
 const getAllShirts = async(req,res) => {
     try {
         const shirts = await Shirt.find({});
@@ -14,12 +13,12 @@ const getAllShirts = async(req,res) => {
 };
 
 // Load specific shirt data from server
-//app.get("/api/t-shirts/:id", 
 const getShirt = async(req,res) => {
     try {
         const queryId = parseInt(req.params.id)
         const shirt = await Shirt.find({ id: queryId });
         res.status(200).json(shirt)
+        console.log("Shirt data fetched")
     } catch (error) {
         res.status(500).json({message: error.message})
     }

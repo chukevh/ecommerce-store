@@ -24,6 +24,21 @@ export async function getSingleShirtData(paramsId) {
     return data
 }
 
+export async function getUser(paramsEmail) {
+    const res = await fetch(`/api/shirt/${paramsEmail}`)
+    const data = await res.json()
+
+    if (!res.ok) {
+        throw {
+            message: data.message,
+            statusText: res.statusText,
+            status: res.status
+        }
+    }
+    
+    return data
+}
+
 export async function loginUser(creds) {
     const res = await fetch("/api/user/login", 
         {   method: "post", 

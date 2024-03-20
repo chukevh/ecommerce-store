@@ -18,7 +18,7 @@ export function useLocalStorage() {
 }
 
 export function useUserLocalStorage() {
-    const [value, setValue] = React.useState("")
+    const [value, setValue] = React.useState({})
     const [initialize, setInitialize] = React.useState(false)
     const jsonValue = localStorage.getItem("userToken")
     

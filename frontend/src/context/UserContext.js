@@ -8,7 +8,7 @@ export const UserContext = React.createContext({
 })
 
 export function UserProvider({ children }) {
-    const [userToken, setUserToken] = React.useState(useUserLocalStorage())
+    const [userToken, setUserToken] = useUserLocalStorage()
 
     function logUserIn() {
         setUserToken(JSON.parse(localStorage.getItem("userToken")))

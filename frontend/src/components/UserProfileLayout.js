@@ -3,7 +3,11 @@ import { UserContext } from "../context/UserContext"
 import React from "react"
 
 export default function UserProfileLayout() {
-    const { userToken, logUserIn, logUserOut } = React.useContext(UserContext)
+    const { 
+        userToken, 
+        logUserIn, 
+        logUserOut 
+    } = React.useContext(UserContext)
     const navigate = useNavigate()
     const activeStyle = {
         fontWeight: "bold",

@@ -6,25 +6,19 @@ const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY;
 const SERVER_URL = process.env.SERVER_URL;
 const stripe = new Stripe(STRIPE_SECRET_KEY)
 
-// Get User
+// Get user by email
 const getUser = async (req, res) => {
     try {
-        const [user] = await User.find({ email : req.body.email })
+        const userEmail = req.params.email
+        const [user] = await User.find({ email : userEmail })
         if (user) {
-            const isMatch = await bcrypt.compare(req.body.password, user.password)
-            if (isMatch) {
-                res.status(200).json({ 
-                    isLoggedIn: true,
-                    email: user.email,
-                    firstName: user.firstName,
-                    lastName: user.lastName,
-                    subscribed: user.subscribed
-                })
-                console.log("Login successful")
-            } else {
-                res.status(401).json({ message: "Login failed, password is incorrect" })
-                console.log({ message: "Login failed, password incorrect" })
-            }
+            res.status(200).json({
+                message: "User found",
+                email: user.email,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                subscribed: user.subscribed
+            }) 
         } else {
             res.status(401).json({ message: "Email not found" })
             console.log("Email not found")
@@ -36,7 +30,6 @@ const getUser = async (req, res) => {
 }
 
 // Sign up user to db
-//app.post("/api/signup", 
 const createUser = async(req,res) => {
     try {
         let userDetails = req.body
@@ -59,10 +52,8 @@ const createUser = async(req,res) => {
 }
 
 // Authentic user
-//app.post("/api/login", 
 const loginUser = async(req,res) => {
     try {
-        console.log("Attempting login")
         const [user] = await User.find({ email : req.body.email })
         if (user) {
             const isMatch = await bcrypt.compare(req.body.password, user.password)
@@ -90,12 +81,9 @@ const loginUser = async(req,res) => {
 }
 
 // Checkout user
-//app.post("/api/checkout", 
 const checkoutUser = async(req,res) => {
-    console.log("Checking out")
     try {
         const lineItems = req.body
-        console.log(lineItems)
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ["card"],
             mode: "payment",
@@ -114,6 +102,7 @@ const checkoutUser = async(req,res) => {
             ]
         })
         res.status(200).json({ url: session.url})
+        console.log("checkout succesful", lineItems)
     } catch (error) {
         console.log(error.message)
         res.status(500).json({ message : error.message })

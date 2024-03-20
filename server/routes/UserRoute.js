@@ -3,7 +3,7 @@ import { checkoutUser, createUser, getUser, loginUser } from "../controllers/Use
 
 const router = express.Router()
 
-router.get('/', getUser)
+router.get('/:email', getUser)
 router.post('/', createUser)
 router.post('/login', loginUser)
 router.post('/checkout', checkoutUser)
