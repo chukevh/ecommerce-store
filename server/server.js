@@ -16,11 +16,10 @@ const _dirname = path.dirname("")
 const buildPath = path.join(_dirname, "../frontend/build")
 
 const app = express()
-app.use(logger)
 app.use(express.json())
 app.use(express.static(buildPath))
-app.use("/api/shirt", ShirtsRoute)
-app.use("/api/user", UserRoute)
+app.use("/api/shirt", logger, ShirtsRoute)
+app.use("/api/user", logger, UserRoute)
 
 app.get("*", function(req,res) {
     res.sendFile(

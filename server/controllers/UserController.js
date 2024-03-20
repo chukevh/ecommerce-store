@@ -35,8 +35,7 @@ const createUser = async(req,res) => {
         let userDetails = req.body
         const passwordHash = await bcrypt.hash(userDetails.password, 13)
         userDetails.password = passwordHash
-        console.log(userDetails)
-        const user = await User.create(userDetails);
+        const user = await User.create(userDetails)
         res.status(200).json({ 
             isLoggedIn: true,
             email: user.email,
@@ -45,6 +44,25 @@ const createUser = async(req,res) => {
             subscribed: user.subscribed
         });
         console.log("User signed up successfully")
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).json({message: error.message});
+    }
+}
+
+// Update user details in db
+const updateUser = async(req,res) => {
+    try {
+        let userDetails = req.body
+        const user = await User.updateOne(
+            {"email" : userDetails.email},
+            { $set: userDetails}
+        )
+        res.status(200).json({ 
+            isLoggedIn: true,
+            ...userDetails
+        })
+        console.log("User updated succesfully")
     } catch (error) {
         console.log(error.message);
         res.status(500).json({message: error.message});
@@ -124,6 +142,7 @@ const checkoutUser = async(req,res) => {
 export {
     getUser,
     createUser,
+    updateUser,
     loginUser,
     checkoutUser
 }

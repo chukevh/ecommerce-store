@@ -79,6 +79,26 @@ export async function signupUser(userDetails) {
     return data
 }
 
+export async function updateUser(userDetails) {
+    const res = await fetch("/api/user", 
+        {   method: "put", 
+            headers: {'Content-Type': 'application/json'}, 
+            body: JSON.stringify(userDetails) 
+        }
+    )
+    const data = await res.json()
+    
+    if(!res.ok) {
+        throw {
+            message: data.message,
+            statusText: res.statusText,
+            status: res.status
+        }
+    }
+    
+    return data
+}
+
 export async function checkoutUser(lineItems) {
     const res = await fetch("/api/user/checkout", { 
         method: "post", 

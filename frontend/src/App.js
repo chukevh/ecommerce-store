@@ -6,7 +6,7 @@ import Shirts, { loader as shirtsLoader } from "./pages/Shirts/Shirts.js"
 import ShirtDetail, { loader as singleShirtLoader} from "./pages/ShirtDetails/ShirtDetail.js"
 import Layout from "./components/Layout.js"
 import UserProfileLayout from "./components/UserProfileLayout.js"
-import UserProfileDetails from "./pages/UserProfile/UserProfileDetails.js"
+import UserProfileDetails, { action as profileAction } from "./pages/UserProfile/UserProfileDetails.js"
 import UserOrderDetails from "./pages/UserProfile/UserOrderDetails.js"
 import UserLogout from "./pages/UserProfile/UserLogout.js"
 import PageNotFound from "./pages/PageNotFound.js"
@@ -59,6 +59,7 @@ const router = createBrowserRouter(createRoutesFromElements(
         index 
         element={<UserProfileDetails />}
         loader={async ({ request }) => await requireAuth({ request })}
+        action={profileAction}
       />
       <Route 
         path="orders" 

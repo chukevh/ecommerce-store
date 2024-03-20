@@ -1,6 +1,26 @@
 import React from "react"
 import { UserContext } from "../../context/UserContext"
-import { Form } from "react-router-dom"
+import { Form, redirect } from "react-router-dom"
+import { updateUser } from "../../api"
+
+export async function action({ request }) {
+    const formData = await request.formData()
+    const email = formData.get("email")
+    const firstName = formData.get("firstName")
+    const lastName = formData.get("lastName")
+    const subscribed = formData.get("subscribed") === 'on' ? true : false
+    const userDetails = { email, firstName, lastName, subscribed }
+
+    try {
+        const userToken = await updateUser(userDetails)
+        localStorage.setItem("userToken", JSON.stringify(userToken))
+        window.location.reload();
+    } catch (error) {
+        console.log(error.message)
+    }
+
+    return null
+}
 
 export default function UserProfileDetails() {
     const { userToken } = React.useContext(UserContext)
@@ -30,12 +50,11 @@ export default function UserProfileDetails() {
                 [name]: type === "checkbox" ? !prevForm.subscribed : value
             }
         })
-        console.log(userForm)
     }
 
     return (
         <div className="user-form-container">
-            <h1>User Profile</h1>
+            <h1>Update Your Profile</h1>
             <Form method="post" className="user-form-signup">
                 <label>Email</label>
                 <input
