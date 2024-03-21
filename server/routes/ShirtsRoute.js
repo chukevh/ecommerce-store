@@ -1,5 +1,8 @@
 import express from 'express'
-import { getAllShirts, getShirt } from '../controllers/ShirtsController.js'
+import { 
+    getAllShirts, 
+    getShirt 
+} from '../controllers/ShirtsController.js'
 
 const router = express.Router()
 

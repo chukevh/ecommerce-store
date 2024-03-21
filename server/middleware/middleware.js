@@ -1,3 +1,4 @@
+// Middleware that logs request
 const logger = (req, res, next) => {
     console.log("Time:", Date().toLocaleString())
     console.log("Request Method:", req.method)
