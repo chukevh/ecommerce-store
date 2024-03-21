@@ -6,7 +6,8 @@ import { dirname } from "path";
 import { fileURLToPath } from 'url';
 import ShirtsRoute from "./routes/ShirtsRoute.js"
 import UserRoute from "./routes/UserRoute.js"
-import logger from "./middleware/middleware.js";
+import { logger } from "./utils/middleware.js";
+import { limiter } from "./utils/utils.js";
 
 // Definitions
 const PORT = process.env.PORT;
@@ -20,7 +21,10 @@ const buildPath = path.join(_dirname, "../frontend/build")
 const app = express()
 // Middleware
 app.use(express.json())
-app.use(express.static(buildPath))
+// Apply the rate limiter to all requests
+app.use(limiter); 
+// Allows static files from frontend to be served
+app.use(express.static(buildPath)) 
 // Routes
 app.use("/api/shirt", logger, ShirtsRoute)
 app.use("/api/user", logger, UserRoute)
