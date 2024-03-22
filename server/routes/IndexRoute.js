@@ -3,14 +3,18 @@ import { dirname } from "path";
 import { fileURLToPath } from 'url';
 import path from "path";
 
+const router = express.Router()
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const router = express.Router()
+const _dirname = path.dirname("")
+const buildPath = path.join(_dirname, "../../frontend/build")
 
+//router.use(express.static(buildPath)) 
+console.log(__dirname)
 // Connecting frontend
-router.get("/", function(req,res) {
+router.get("*", function(req,res) {
     res.sendFile(
-        path.join(__dirname, "../frontend/build/index.html"),
+        path.join(__dirname, "../../frontend/build/index.html"),
         function (err) {
             if (err) {
                 res.status(500).send(err);
