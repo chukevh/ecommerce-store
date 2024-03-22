@@ -9,8 +9,10 @@ const __dirname = dirname(__filename);
 const _dirname = path.dirname("")
 const buildPath = path.join(_dirname, "../../frontend/build")
 
+// Allows static files from frontend to be served
 //router.use(express.static(buildPath)) 
-console.log(__dirname)
+
+//console.log(__dirname)
 // Connecting frontend
 router.get("*", function(req,res) {
     res.sendFile(

@@ -30,6 +30,7 @@ app.use(express.static(buildPath))
 // Routes
 app.use("/api/shirt", logger, ShirtsRoute)
 app.use("/api/user", logger, UserRoute)
+//app.use("*", IndexRoute)
 app.get("*", function(req,res) {
     res.sendFile(
         path.join(__dirname, "../frontend/build/index.html"),
