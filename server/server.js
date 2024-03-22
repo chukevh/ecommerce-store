@@ -26,25 +26,15 @@ app.use(express.json())
 // Apply the rate limiter to all requests
 app.use(limiter); 
 // Allows static files from frontend to be served
-app.use(express.static(buildPath)) 
+app.use(express.static(buildPath))
 
 // Routes
 app.use("/api/shirt", logger, ShirtsRoute)
 app.use("/api/user", logger, UserRoute)
 app.use("*", IndexRoute)
-// app.get("*", function(req,res) {
-//     res.sendFile(
-//         path.join(__dirname, "../frontend/build/index.html"),
-//         function (err) {
-//             if (err) {
-//                 res.status(500).send(err);
-//             }
-//         }
-//     )
-// })
 
 
-app.listen(PORT, () => {
+app.listen(5000, () => {
     console.log(`server is listening on port ${PORT}`);
     mongoose.connect(DB_URL)
         .then(() => {
