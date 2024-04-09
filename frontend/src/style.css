@@ -133,7 +133,6 @@ a.nav-text  {
 .hero {
     display: flex;
     flex-direction: column;
-
 }
 
 .hero-montage {
@@ -156,8 +155,17 @@ a.nav-text  {
 .cards-list {
     display: flex;
     flex-wrap: nowrap;
-    overflow-x: auto;
     gap: 5%;
+    overflow-x: scroll;
+
+}
+
+.cards-list::-webkit-scrollbar {
+    height: 0.5rem;
+}
+
+.cards-list::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
 }
 
 .card {
@@ -168,7 +176,7 @@ a.nav-text  {
     flex: 0 0 auto;
     position: relative;
     border: none;
-    /* align-items: center; */
+    align-items: center;
 }
 
 .card-image-container:hover {
@@ -345,27 +353,22 @@ a.nav-text  {
 .shirt-main-content {
     padding-top: 30px;
     text-align: center;
-}
-
-.shirt-container {
-    margin-top: 2%;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 5%;
-    justify-content: flex-start;
+    flex-direction: column;
 }
 
 .shirt-filters-container {
     display: flex;
     gap: 10px;
+    flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .shirt-genre-button {
     padding: 7px 20px;
     font-style: normal;
-    font-size: 15px; 
+    font-size: 1rem; 
     font-weight: 500;
     color: black;
     background-color: white;
@@ -381,6 +384,15 @@ a.nav-text  {
 
 .shirt-genre-button.clear-filters-button {
     border: none;
+}
+
+.shirt-container {
+    margin-top: 2%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5%;
+    justify-content: flex-start;
 }
 
 .shirtcard-container {
@@ -482,7 +494,8 @@ a.nav-text  {
 .shirt-small-img-container {
     padding-top: 5%;
     width: 100%;
-    max-width: 400px;
+    min-width: 15rem;
+    max-width: 30rem;
     height: auto;
     display: flex;
     flex-direction: row;
@@ -825,4 +838,33 @@ a.nav-text  {
     padding-top: 5vh;
 }
 
+@media (width <= 1000px) {
+    /* Homepage */
+    .hero {
+        text-align: center;
+    }
+    .bestsellers {
+        text-align: center;
+    }
+    .card {
+        width: 50%;
+    }
 
+    /* All shirts page */
+    .shirtcard-container {
+        min-width: 45%;
+    }
+
+    /* Shirt page */
+    .shirt-detail-container {
+        gap: 1rem;
+    }
+    .shirt-hero-container { 
+        padding-top: 1rem;
+    }
+    .shirt-details-container {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+}
