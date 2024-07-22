@@ -3,7 +3,7 @@ This project is currently in progress.
 
 *Not all features are working*
 
-A live demo of this project can be found [here](http://kevshirtshop.com/)
+A live demo of this project can be found [here](http://kenkyoapparel.com/)
 
 
 ## Available Scripts
