@@ -15,6 +15,7 @@ import { requireAuth } from "./utils.js"
 import Login, { loader as loginLoader, action as loginAction } from "./pages/Login.js"
 import Cart from "./pages/Cart/Cart.js"
 import OrderConfirmation from "./pages/Cart/OrderConfirmation.js"
+import Contact from "./pages/Contact.js"
 
 
 const router = createBrowserRouter(createRoutesFromElements(
@@ -37,6 +38,10 @@ const router = createBrowserRouter(createRoutesFromElements(
       path="sign-up" 
       element={<SignUp />} 
       action={signupAction}
+    />
+    <Route 
+      path="contact" 
+      element={<Contact />}
     />
     <Route 
       path="login" 

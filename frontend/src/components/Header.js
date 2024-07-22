@@ -27,7 +27,7 @@ export default function Header() {
         <nav className="nav-items">
             <Link to="." className="nav-text">
                 <img src={logo} alt="Shirt Store Logo" className="nav-logo"/>
-                Kev's Shirt Shop
+                Kenkyo Apparel
             </Link>
             <div className="nav-links">
                 <NavLink 
@@ -36,9 +36,16 @@ export default function Header() {
                 >
                     Shop Shirts
                 </NavLink>
+                <NavLink 
+                    to="contact"
+                    style={({ isActive }) => isActive ? activeStyle : null }
+                >
+                    Contact
+                </NavLink>
                 {
                     Object.keys(userToken).length === 0 && 
-                    <NavLink 
+                    <NavLink
+                        className={"nav-signup"} 
                         to="sign-up"
                         style={({ isActive }) => isActive ? activeStyle : null }
                     >
